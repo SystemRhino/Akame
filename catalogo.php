@@ -26,12 +26,28 @@ $script_categoria->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Produtos - Akame</title>
+    <style>
+        #teste{
+            filter: drop-shadow(2px 2px 4px #ffff);
+        }
+    </style>
 </head>
 <body>
-<br>
-<!-- While Produtos -->
-<?php 
+
+<?php include('php/navbar.php');?>
+
+<div class="main">
+    <aside class="left"> 
+    Left
+    </aside>
+
+    <main>
+
+    <?php 
 while ($categoria = $script_categoria->fetch(PDO::FETCH_ASSOC)) { 
     //Consulta Autor
     $nm_categoria = $categoria['nm_categoria'];
@@ -50,7 +66,7 @@ if ($script_produtos->rowCount()>0){
         $img_produto = $produto['ds_img'];
 ?>
         <div>
-            <img onclick="window.location.href = 'produto.php?id=<?php echo $nm_produto;?>'" src="./img/<?php echo $img_produto;?>" alt="" width="100" height="100"> 
+            <img onclick="window.location.href = 'produto.php?id=<?php echo $nm_produto;?>'" src="https://images.yampi.me/assets/stores/atlas-company2/uploads/images/camiseta-a-bhating-ape-are-shall-never-kill-ape-preto-65a009359dfea-large.png" alt="" width="300" id="teste"> 
         <br>
         </div> 
 <?php        
@@ -59,6 +75,12 @@ if ($script_produtos->rowCount()>0){
              echo "Sem produtos";
         }
     ?>
+
+
+    </main>
+<aside class="right">right</aside>
+    </div>
+
+<?php include('php/footer.php');?>
 </body>
 </html>
-<?php include('footer.php');?>

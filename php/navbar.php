@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="../css/navbar.css">
 
 <nav>
-        <a class="logo" href="/"><img src="../img/3dgifmaker87728.gif" alt="logo" width="100"></a>
+        <a class="logo" href="/"><img src="img/3dgifmaker87728.gif" alt="logo" width="100"></a>
         <div class="mobile-menu">
           <div class="line1"></div>
           <div class="line2"></div>

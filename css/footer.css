@@ -13,7 +13,7 @@ footer{
     border-top-color: #0f0f0f;
     color:var(--white);
 }
-.container{
+.containerF{
     width: 1140px;
     margin: auto;
     display: flex;
