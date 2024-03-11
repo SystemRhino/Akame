@@ -26,7 +26,7 @@ $script_categoria->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Produtos - Akame</title>
 </head>
 <body>
 <br>
@@ -51,6 +51,7 @@ if ($script_produtos->rowCount()>0){
 ?>
         <div>
             <img onclick="window.location.href = 'produto.php?id=<?php echo $nm_produto;?>'" src="./img/<?php echo $img_produto;?>" alt="" width="100" height="100"> 
+        <br>
         </div> 
 <?php        
     }
@@ -58,7 +59,6 @@ if ($script_produtos->rowCount()>0){
              echo "Sem produtos";
         }
     ?>
-
 </body>
 </html>
 <?php include('footer.php');?>
