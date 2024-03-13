@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+    --white-light: rgba(255, 255, 255, 0.5);
+    --alice-blue: #f8f9fa;
+    --carribean-green: #40c9a2;
+    --gray: #ededed;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Utility stylings */
+.imgr{
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 0 0.75rem #ffff);
+}
+.containerCR{
+    width: 88vw;
+    margin: 0 auto;
+}
+
+
+/* product section */
+
+.products .text-light{
+    text-align: center;
+    width: 70%;
+    margin: 0.9rem auto;
+}
+.product{
+    margin: 2rem;
+    position: relative;
+}
+.product-content{
+
+    cursor: pointer;
+}
+.product-img{
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: background 0.5s ease;
+}
+
+.product-img img{
+    transition: transform 0.6s ease;
+}
+.product:hover .product-img img{
+    transform: scale(1.1);
+}
+
+.product:hover .product-btns{
+    opacity: 1;
+}
+
+
+
+
+/* Media Queries */
+@media screen and (min-width: 992px){
+    .product-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .product-col-r-bottom{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1200px){
+    .product-items{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .product{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .products .text-light{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1336px){
+    .product-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .product-collection-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .flex{
+        height: 60vh;
+    }
+    .product-col-left{
+        height: 121.5vh;
+    }
+}
+@media (max-width:865px){
+    .product-img{
+        margin-top:10rem;
+    }
+}
+@media (min-width:919px){
+    .product-img{
+        margin-top:10rem;
+    }
+}

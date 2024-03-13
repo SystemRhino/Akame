@@ -29,12 +29,15 @@ $script_categoria->execute();
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+
     <title>Produtos - Akame</title>
     <style>
         #teste{
             filter: drop-shadow(2px 2px 4px #ffff);
         }
     </style>
+      
 </head>
 <body>
 
@@ -46,8 +49,12 @@ $script_categoria->execute();
     </aside>
 
     <main>
+    <div class = "products">
+            <div class = "containerCR">
 
+                <div class = "product-items">
     <?php 
+    
 while ($categoria = $script_categoria->fetch(PDO::FETCH_ASSOC)) { 
     //Consulta Autor
     $nm_categoria = $categoria['nm_categoria'];
@@ -57,6 +64,7 @@ while ($categoria = $script_categoria->fetch(PDO::FETCH_ASSOC)) {
 }
 ?>
 <!-- While Produtos -->
+
 <?php
 // Verificação se tem produtos
 if ($script_produtos->rowCount()>0){
@@ -65,10 +73,17 @@ if ($script_produtos->rowCount()>0){
         $nm_produto = $produto['nm_produto'];
         $img_produto = $produto['ds_img'];
 ?>
-        <div>
-            <img onclick="window.location.href = 'produto.php?id=<?php echo $nm_produto;?>'" src="https://images.yampi.me/assets/stores/atlas-company2/uploads/images/camiseta-a-bhating-ape-are-shall-never-kill-ape-preto-65a009359dfea-large.png" alt="" width="300" id="teste"> 
-        <br>
-        </div> 
+
+
+   
+        <div class = "product">
+                        <div class = "product-content">
+                            <div class = "product-img">
+                                <img onclick="window.location.href = 'produto.php?id=<?php echo $nm_produto;?>'" src = "https://acdn.mitiendanube.com/stores/003/116/592/products/8d0ee817-2f1d-47de-a9ca-f51592a5699f1-cbd6ff451d24272e3416894852042476-1024-1024.png" alt = "product image" class="imgr">
+                            </div>
+                        </div>
+                    </div>
+                  
 <?php        
     }
         }else{
@@ -76,6 +91,11 @@ if ($script_produtos->rowCount()>0){
         }
     ?>
 
+       
+
+                </div>
+            </div>
+        </div>
 
     </main>
 <aside class="right">right</aside>
