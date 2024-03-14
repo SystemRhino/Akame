@@ -50,7 +50,7 @@ include('footer.php');
         <div class="container">
             <div class="footer-content">
                 <h3>Contact Us</h3>
-                <p><a href="pags/login.php">login</a></p>
+                <p><a href="login.php">login</a></p>
                 <p>Phone:+121 56556 565556</p>
                 <p>Address:Your Address 123 street</p>
             </div>

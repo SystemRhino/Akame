@@ -12,20 +12,63 @@ if (isset($_SESSION['id'])) {
 	<meta charset="utf-8">
 </head>
 	<script src="js/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/login-cadastro.css">
+  <link rel="stylesheet" href="css/index.css">
+
 <body>
 
-	<!-- Tag "span" usada para retorno do ajax -->
-	<span></span><br>
+<?php include('php/navbar.php')?>
 
-	<!-- Fomr cadastro user -->
-<form id="form_cadastro" method="post" enctype="multipart/form-data">
-<input type="text" name="user" placeholder="Nome completo"><br>
-<input type="number" name="tel" placeholder="Telefone"><br>
-<input type="text" name="login" placeholder="E-mail"><br>
-<input type="text" name="password" placeholder="Senha"><br>
-<button type="submit" id="enviar">Akame | Cadastrar</button>
-<a href="login.php">Login</a>
-</form>
+
+<div class="main">
+    <aside class="left"> 
+    Left
+    </aside>
+
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
+
+
+<div class="containerF">
+      <div class="wrapperF">
+        <div class="title">Cadastro</div>
+        <form id="form_cadastro" method="post" enctype="multipart/form-data" class="formF">
+          <div class="row">
+            
+          <input type="text" name="user" placeholder="Nome completo">
+          </div>
+          
+          <div class="row">
+          <input type="number" name="tel" placeholder="Telefone">
+          </div>
+          <div class="row">
+          <input type="text" name="login" placeholder="E-mail">
+          </div>
+          <div class="row">
+          <input type="text" name="password" placeholder="Senha">
+          </div>
+          
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <button type="submit" id="entrar" class="btn-join">Entrar</button>
+          </div>
+          <div class="signup-link">Not a member? <a href="login.php">Akame | login</a></div>
+          </form>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    </main>
+<aside class="right">right</aside>
+    </div>
+
+
 </body>
 
 	<script type="text/javascript">

@@ -10,17 +10,60 @@ if (isset($_SESSION['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/login-cadastro.css">
+
+
+    <title>Login</title>
+
 </head>
 <body>
-    	<!-- Tag "span" usada para retorno do ajax -->
-	<span></span><br>
+	<?php include('php/navbar.php')?>
+    	
+	
 
-<input type="email" id="login" placeholder="E-mail"><br>
-<input type="text" id="password" placeholder="Senha"><br>
-<button id="entrar">Entrar</button><br>
-<a href="cadastro.php">Akame | login</a>
-</body>
+
+<div class="main">
+    <aside class="left"> 
+    Left
+    </aside>
+
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
+
+
+<div class="containerF">
+      <div class="wrapperF">
+        <div class="title">Login</div>
+        <div class="formF" action="#">
+          <div class="row">
+            
+			<input type="email" id="login" placeholder="E-mail:">
+          </div>
+          
+          <div class="row">
+            <input type="password" placeholder="Senha:" id="password">
+          </div>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <button id="entrar" class="btn-join">Entrar</button>
+          </div>
+          <div class="signup-link">Not a member? <a href="cadastro.php">Akame | login</a></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    </main>
+<aside class="right">right</aside>
+    </div>
+
+
 	<!-- JS -->
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
