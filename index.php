@@ -8,11 +8,18 @@ include('footer.php');
     <link rel="stylesheet" href="./css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+
 
     <title>Akame</title>
+   
+     
+   
 </head>
 <body>
 
@@ -46,39 +53,7 @@ include('footer.php');
     </div>
 
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                <p><a href="login.php">login</a></p>
-                <p>Phone:+121 56556 565556</p>
-                <p>Address:Your Address 123 street</p>
-            </div>
-            <div class="footer-content">
-                <h3>Quick Links</h3>
-                 <ul class="list">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Contact</a></li>
-                 </ul>
-            </div>
-            <div class="footer-content">
-                <h3>Follow Us</h3>
-                <ul class="social-icons">
-                 <li><a href="produto.php"><i class="fab fa-facebook">teste</i></a></li>
-                 <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                 <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                 <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-                </div>
-        </div>
-        <div class="bottom-bar">
-            <p>&copy; 2024, Akame Organization BY botzin</p>
-        </div>
-    </footer>
-
+   <?php include('php/footer.php')?>
 
 <div id="enterPag">
 <img src="./img/logo-gif.gif" alt=""><br>

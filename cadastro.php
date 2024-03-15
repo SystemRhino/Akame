@@ -14,6 +14,9 @@ if (isset($_SESSION['id'])) {
 	<script src="js/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="css/login-cadastro.css">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/navbar.css">
+
 
 <body>
 
@@ -68,7 +71,7 @@ if (isset($_SESSION['id'])) {
 <aside class="right">right</aside>
     </div>
 
-
+<?php include('php/footer.php')?>
 </body>
 
 	<script type="text/javascript">

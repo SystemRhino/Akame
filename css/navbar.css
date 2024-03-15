@@ -20,6 +20,7 @@
     background-color:var(--black);
     height: 8vh;
     color:var(--white);
+
   }
   
   nav a{
@@ -34,11 +35,13 @@
   .nav-list li {
     letter-spacing: 3px;
     margin-left: 32px;
+
   }
   
   .mobile-menu {
     display: none;
     cursor: pointer;
+
   }
   
   .mobile-menu div {
@@ -54,6 +57,7 @@
       overflow-x: hidden;
     }
     .nav-list {
+     z-index:1;
       position: absolute;
       top: 8vh;
       right: 0;
@@ -69,9 +73,12 @@
     .nav-list li {
       margin-left: 0;
       opacity: 0;
+      z-index:999;
+     
     }
     .mobile-menu {
       display: block;
+     
     }
   }
   
