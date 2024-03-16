@@ -18,6 +18,18 @@ CREATE SCHEMA IF NOT EXISTS `bd_akame` DEFAULT CHARACTER SET utf32 ;
 USE `bd_akame` ;
 
 -- -----------------------------------------------------
+-- Table `bd_akame`.`tb_carrinho`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_carrinho` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_user` INT(11) NULL DEFAULT NULL,
+  `id_produto` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf32;
+
+
+-- -----------------------------------------------------
 -- Table `bd_akame`.`tb_categoria`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_categoria` (
@@ -38,10 +50,12 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_products` (
   `id_categoria` INT(11) NULL DEFAULT NULL,
   `vl_produto` VARCHAR(45) NULL DEFAULT NULL,
   `ds_produto` VARCHAR(45) NULL DEFAULT NULL,
-  `ds_img` VARCHAR(100) NULL DEFAULT NULL,
+  `img_1` VARCHAR(100) NULL DEFAULT NULL,
+  `img_2` VARCHAR(100) NULL DEFAULT NULL,
+  `nr_estoque` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8;
 
 
