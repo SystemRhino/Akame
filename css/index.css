@@ -60,8 +60,9 @@
     color:var(--white);
   }
   #enterPag img{
-    width:5rem;
-    height:5rem;
+    width:12rem;
+    height:12rem;
+    transition:opacity 500ms;
   }
 
   .logo {
@@ -69,4 +70,11 @@
   text-transform: uppercase;
   letter-spacing: 4px;
 }
+.enter{
+  display:inline-block;
+}
+#clickEnter{
+  transition:opacity 500ms;
+}
+
 

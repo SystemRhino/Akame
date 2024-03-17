@@ -12,7 +12,7 @@
           <li><a href="#">Início</a></li>
           <li><a href="#">Sobre</a></li>
           <li><a href="#">Projetos</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#">Carrinho</a></li>
         </ul>
       </nav>
 

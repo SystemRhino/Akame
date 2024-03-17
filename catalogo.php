@@ -45,7 +45,7 @@ $script_categoria->execute();
 
 <div class="main">
     <aside class="left"> 
-    Left
+    
     </aside>
 
     <main>
@@ -98,7 +98,7 @@ if ($script_produtos->rowCount()>0){
         </div>
 
     </main>
-<aside class="right">right</aside>
+<aside class="right"></aside>
     </div>
 
 <?php include('php/footer.php');?>

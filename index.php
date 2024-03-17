@@ -24,93 +24,27 @@ include('footer.php');
 <body>
 
 
-<nav>
-        <a class="logo" href="/"><img src="img/3dgifmaker87728.gif" alt="logo" width="100   "></a>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="php/navbar.php">Início</a></li>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Projetos</a></li>
-          <li><input type="text"></li>
-        </ul>
-      </nav>
-
-
-    
-
-    <div class="main">
-    <aside class="left"> 
-    Left
-    </aside>
-
-    <main>centro
-    </main>
-<aside class="right">right</aside>
-    </div>
-
-
-   <?php include('php/footer.php')?>
 
 <div id="enterPag">
-<img src="./img/logo-gif.gif" alt=""><br>
+  <div class="enter">
+    <center>
+<img src="./img/3dgifmaker87728.gif" alt="" class="imglogo"><br>
     <h1 id="clickEnter" style="cursor:pointer;">[ENTER]</h1>
+    </center>
+  </div>
 </div>
 
-
-
 <script>
-document.getElementById("clickEnter").addEventListener("click", function() {
-document.getElementById("enterPag").style.display = "none";
-});
+  nextPag = document.querySelector("#clickEnter").addEventListener("click", bele);
 
-class MobileNavbar {
-  constructor(mobileMenu, navList, navLinks) {
-    this.mobileMenu = document.querySelector(mobileMenu);
-    this.navList = document.querySelector(navList);
-    this.navLinks = document.querySelectorAll(navLinks);
-    this.activeClass = "active";
+  function bele(){
 
-    this.handleClick = this.handleClick.bind(this);
+    document.querySelector("#clickEnter").style.opacity = "0";
+    document.querySelector(".imglogo").style.opacity = "0";
   }
-
-  animateLinks() {
-    this.navLinks.forEach((link, index) => {
-      link.style.animation
-        ? (link.style.animation = "")
-        : (link.style.animation = `navLinkFade 0.5s ease forwards ${
-            index / 7 + 0.3
-          }s`);
-    });
-  }
-
-  handleClick() {
-    this.navList.classList.toggle(this.activeClass);
-    this.mobileMenu.classList.toggle(this.activeClass);
-    this.animateLinks();
-  }
-
-  addClickEvent() {
-    this.mobileMenu.addEventListener("click", this.handleClick);
-  }
-
-  init() {
-    if (this.mobileMenu) {
-      this.addClickEvent();
-    }
-    return this;
-  }
-}
-
-const mobileNavbar = new MobileNavbar(
-  ".mobile-menu",
-  ".nav-list",
-  ".nav-list li",
-);
-mobileNavbar.init();
+  setTimeout(() => {
+    window.location.href = "catalogo.php";
+  },1500);
 </script>
 
 </body>
