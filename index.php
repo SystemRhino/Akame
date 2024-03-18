@@ -41,10 +41,12 @@ include('footer.php');
 
     document.querySelector("#clickEnter").style.opacity = "0";
     document.querySelector(".imglogo").style.opacity = "0";
-  }
-  setTimeout(() => {
+
+    setTimeout(() => {
     window.location.href = "catalogo.php";
-  },1500);
+  },1000);
+  }
+  
 </script>
 
 </body>
