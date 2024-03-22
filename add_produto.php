@@ -22,36 +22,105 @@ $script_user->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/login-cadastro.css">
     <title>Gerenciar Produtos</title>
 </head>
 <body>
+<?php include('php/navbar.php')?>
 
-	<!-- JS -->
-	<script src="js/jquery-3.6.0.min.js"></script>
-<body>
+<div class="main">
+    <aside class="left"> 
+    Left
+    </aside>
 
-	<!-- Tag "span" usada para retorno do ajax -->
-	<span></span><br>
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
 
-	<!-- Fomr cadastro produto -->
-<form id="form_produto" method="post" enctype="multipart/form-data">
-<input type="file" name="img_1"><br>
-<input type="file" name="img_2"><br>
-<input type="text" name="nm_produto" placeholder="Titulo do produto"><br>
-<input type="number" name="nr_valor" placeholder="Valor do produto"><br>
-<input type="number" name="nr_estoque" placeholder="Numero do estoque"><br>
-<textarea name="ds_produto" placeholder="Descrição"></textarea><br>
 
-<select name="id_categoria">
+<div class="containerF">
+      <div class="wrapperF">
+        <div class="title">Adicionar produto</div>
+        <form id="form_produto" method="post" enctype="multipart/form-data" class="formF">
+
+
+        <div class="row">
+            
+        <input type="file" name="img_1">
+            </div>
+            
+        <div class="row">
+            
+        <input type="file" name="img_2">
+                </div>
+            
+          <div class="row">
+            
+          <input type="text" name="nm_produto" placeholder="Titulo do produto">
+          </div>
+          
+          <div class="row">
+          <input type="number" name="nr_valor" placeholder="Valor do produto">
+          </div>
+          <div class="row">
+          <input type="number" name="nr_estoque" placeholder="Numero do estoque">
+          </div>
+          <div class="row">
+          <textarea name="ds_produto" placeholder="Descrição" ></textarea>
+          </div>
+          <div class="row">
+          <select name="id_categoria">
 <?php while ($categoria = $script_categoria->fetch(PDO::FETCH_ASSOC)) {?>	
 	<option value="<?php echo $categoria['id']?>"><?php echo $categoria['nm_categoria']?></option>
 <?php }?>
-</select><br>
+</select>
+          </div>
+          
+          <div class="row button">
+            
+            <button type="submit" id="enviar" class="btn-join">Enviar</button>
+          </div>
+     
+          </form>
 
-<br>
+      </div>
+    </div>
 
-<button type="submit" id="enviar">Enviar</button>
-</form>
+
+
+    <table>
+    <tr>
+        <th>#ID</th>
+        <th>Titulo</th>
+        <th>R$</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+    </tr>
+    <?php while ($produto = $script_produto->fetch(PDO::FETCH_ASSOC)) { ?>
+			<tr>
+				<td><?php echo $produto['id']; ?></td>
+                <td><?php echo $produto['nm_produto'];?></td>
+                <td><?php echo $produto['vl_produto'];?></td>
+                <td><?php echo $produto['nr_estoque'];?></td>
+                <td>
+                    <button  onclick="window.location.href = 'php/delete_produto.php?id=<?php echo $produto['id'];?>'">Excluir</button>
+                    <button onclick="window.location.href = 'edit_produto.php?id=<?php echo $produto['id'];?>'">Editar</button>
+                </td>
+            </tr>
+    <?php }?>
+</table>
+
+
+    </main>
+<aside class="right">right</aside>
+    </div>
+
+	<!-- JS -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+
 
 <script>
   $(document).ready(function() {
@@ -78,27 +147,9 @@ $script_user->execute();
 });
 </script>
 
-<table>
-    <tr>
-        <th>#ID</th>
-        <th>Titulo</th>
-        <th>R$</th>
-        <th>Estoque</th>
-        <th>Ações</th>
-    </tr>
-    <?php while ($produto = $script_produto->fetch(PDO::FETCH_ASSOC)) { ?>
-			<tr>
-				<td><?php echo $produto['id']; ?></td>
-                <td><?php echo $produto['nm_produto'];?></td>
-                <td><?php echo $produto['vl_produto'];?></td>
-                <td><?php echo $produto['nr_estoque'];?></td>
-                <td>
-                    <button  onclick="window.location.href = 'php/delete_produto.php?id=<?php echo $produto['id'];?>'">Excluir</button>
-                    <button onclick="window.location.href = 'edit_produto.php?id=<?php echo $produto['id'];?>'">Editar</button>
-                </td>
-            </tr>
-    <?php }?>
-</table>
+
+
+<?php include('php/footer.php')?>
 </body>
 </html>
 <?php }?>
