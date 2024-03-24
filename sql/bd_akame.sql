@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_products` (
   `nr_estoque` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -79,3 +79,8 @@ DEFAULT CHARACTER SET = utf32;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- INSERT INTO `bd_akame`.`tb_users`
+-- -----------------------------------------------------
+INSERT INTO `bd_akame`.`tb_users` (`id`, `nm_user`, `ds_login`, `ds_senha`, `nivel`) VALUES ('1', 'bot', 'bot', 'bot', '1');
