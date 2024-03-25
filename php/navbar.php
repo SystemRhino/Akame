@@ -2,7 +2,7 @@
 
 
 <nav>
-        <a class="logo" href="/"><img src="img/3dgifmaker87728.gif" alt="logo" width="100"></a>
+        <a class="logo" href="index.php"><img src="img/logo.png " alt="logo" width="50"></a>
         <div class="mobile-menu">
           <div class="line1"></div>
           <div class="line2"></div>
@@ -12,7 +12,7 @@
           <li><a href="#">Início</a></li>
           <li><a href="#">Sobre</a></li>
           <li><a href="#">Projetos</a></li>
-          <li><a href="#">Carrinho</a></li>
+          <li><a href="carrinho.php">Carrinho</a></li>
         </ul>
       </nav>
 
