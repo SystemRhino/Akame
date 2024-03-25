@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
 
     <span></span>
     	<!-- JS -->
-	<script src="js/jquery-3.6.0.min.js"></script>
+	<!--<script src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#cart").click(function(){
@@ -47,7 +47,7 @@ if(isset($_GET['id'])){
 		});
   	});
 });
-	</script>
+	</script>-->
 </head>
 <body>
 <?php include('php/navbar.php');?>
@@ -92,7 +92,7 @@ if ($script_produtos->rowCount()>0){
 
           <div class = "purchase-info">
             <input type = "number" min = "0" value = "1">
-            <button id="cart" type = "button" class = "btn">
+            <button id="cart" type = "button" class = "btn" onclick="window.location.href = './php/script_carrinho.php?id=<?php echo $produto['id'];?>'">
               Add to Cart <i class = "fas fa-shopping-cart"></i>
             </button>
             
