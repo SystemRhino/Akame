@@ -25,12 +25,35 @@ if(isset($_GET['id'])){
 
     <title><?php echo $nm_produto;?></title>
 
+    <span></span>
+    	<!-- JS -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#cart").click(function(){
+  			$.ajax({
+  				url: "php/script_carrinho.php",
+  				type: "POST",
+  				data: "id_produto=<?php echo $produto['id']?>",
+  				dataType: "html"
+  			}).done(function(resposta) {
+	    $("span").html(resposta);
+
+		}).fail(function(jqXHR, textStatus ) {
+	    console.log("Request failed: " + textStatus);
+
+		}).always(function() {
+	    console.log("completou");
+		});
+  	});
+});
+	</script>
 </head>
 <body>
 <?php include('php/navbar.php');?>
 <div class="main">
     <aside class="left"> 
-    Left
+    
     </aside>
 
     <main>
@@ -47,8 +70,8 @@ if ($script_produtos->rowCount()>0){
         <div class = "product-imgs">
           <div class = "img-display">
             <div class = "img-showcase">
-            <!-- <img src="./img/<?php echo $produto['ds_img'];?>" alt="">  -->
-              <img src = "https://images.yampi.me/assets/stores/atlas-company2/uploads/images/camiseta-a-bhating-ape-are-shall-never-kill-ape-preto-65a009359dfea-large.png" alt = "shoe image">
+            <img src="./img/<?php echo $produto['img_1'];?>" alt="shoe image">
+              <!--<img src = "https://images.yampi.me/assets/stores/atlas-company2/uploads/images/camiseta-a-bhating-ape-are-shall-never-kill-ape-preto-65a009359dfea-large.png" alt = "shoe image">-->
        
             </div>
           </div>
@@ -69,7 +92,7 @@ if ($script_produtos->rowCount()>0){
 
           <div class = "purchase-info">
             <input type = "number" min = "0" value = "1">
-            <button type = "button" class = "btn">
+            <button id="cart" type = "button" class = "btn">
               Add to Cart <i class = "fas fa-shopping-cart"></i>
             </button>
             
@@ -90,10 +113,11 @@ if ($script_produtos->rowCount()>0){
     ?>
 
     </main>
-<aside class="right">right</aside>
+<aside class="right"></aside> 
     </div>
 
 
     <?php include('php/footer.php');?>
+
 </body>
 </html>
