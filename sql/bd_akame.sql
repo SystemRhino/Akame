@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_carrinho` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `id_user` INT(11) NULL DEFAULT NULL,
   `id_produto` INT(11) NULL DEFAULT NULL,
+   `nr_quant` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf32;
