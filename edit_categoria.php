@@ -19,27 +19,63 @@ if (!isset($_GET['id'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/login-cadastro.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/navbar.css">
         <title>Editar Produto</title>
     </head>
     <body>
+    <?php include('php/navbar.php')?>
+    <div class="main">
+    <aside class="left"> 
     
+    </aside>
+
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
+
+
+<div class="containerF">
+      <div class="wrapperF">
+        <div class="title">Editar produto</div>
+        <form id="form_categoria" method="post" enctype="multipart/form-data" class="formF">
+          <div class="row">
+            
+          <input type="text" name="id" value="<?php echo $categoria['id']?>">
+          </div>
+          
+          <div class="row">
+          <input type="text" name="nm_categoria" placeholder="Nome da categoria" value="<?php echo $categoria['nm_categoria']?>">
+          </div>
+        
+          
+          
+          <div class="row button">
+            <button type="submit" id="enviar" class="btn-join">Enviar</button>
+          </div>
+          
+          </form>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    </main>
+<aside class="right"></aside>
+    </div>
         <!-- JS -->
         <script src="js/jquery-3.6.0.min.js"></script>
-    <body>
+   
     
-        <!-- Tag "span" usada para retorno do ajax -->
-        <span></span><br>
+       
     
-        <!-- Fomr cadastro produto -->
-    <form id="form_categoria" method="post" enctype="multipart/form-data">
-    <input type="text" name="id" value="<?php echo $categoria['id']?>"><br>
-    <input type="text" name="nm_categoria" placeholder="Nome da categoria" value="<?php echo $categoria['nm_categoria']?>"><br>
-    
-    <br>
-    
-    <button type="submit" id="enviar">Enviar</button>
-    </form>
-    <span></span>
+   
     <script>
       $(document).ready(function() {
       $('#form_categoria').submit(function(event) {
@@ -64,7 +100,7 @@ if (!isset($_GET['id'])){
       });
     });
     </script>
-    
+    <?php include('php/footer.php')?>
     </body>
     </html>
     <?php 

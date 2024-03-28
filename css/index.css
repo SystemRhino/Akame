@@ -77,4 +77,11 @@
   transition:opacity 500ms;
 }
 
-
+@media (max-width: 999px) {
+  .left{
+    display:none;
+  }
+  .right{
+    display:none;
+  }
+}

@@ -27,38 +27,87 @@ if (!isset($_GET['id'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/login-cadastro.css">
         <title>Editar Produto</title>
     </head>
     <body>
-    
+    <?php include('php/navbar.php')?>
         <!-- JS -->
         <script src="js/jquery-3.6.0.min.js"></script>
     <body>
+    <div class="main">
+    <aside class="left"> 
     
-        <!-- Tag "span" usada para retorno do ajax -->
-        <span></span><br>
-    
-        <!-- Fomr cadastro produto -->
-    <form id="form_produto" method="post" enctype="multipart/form-data">
-    <input type="file" name="ds_img"><br>
-    <input type="file" name="ds_img_2"><br>
-    <input type="text" name="id" value="<?php echo $produto['id']?>"><br>
-    <input type="text" name="nm_produto" placeholder="Titulo do produto" value="<?php echo $produto['nm_produto']?>"><br>
-    <input type="number" name="nr_valor" placeholder="Valor do produto" value="<?php echo $produto['vl_produto']?>"><br>
-    <input type="number" name="nr_estoque" placeholder="Numero do estoque" value="<?php echo $produto['nr_estoque']?>"><br>
-    <textarea name="ds_produto" placeholder="Descrição"><?php echo $produto['ds_produto']?></textarea><br>
-    
-    <select name="id_categoria">
+    </aside>
+
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
+
+
+<div class="containerF">
+      <div class="wrapperF">
+        <div class="title">Adicionar produto</div>
+        <form id="form_produto" method="post" enctype="multipart/form-data" class="formF">
+
+        <div class="row">
+            
+        <input type="file" name="ds_img">
+            </div>
+            
+        <div class="row">
+            
+        <input type="file" name="ds_img_2">
+                </div>
+            
+          <div class="row">
+            
+          <input type="text" name="id" value="<?php echo $produto['id']?>">
+          </div>
+          
+          <div class="row">
+          <input type="text" name="nm_produto" placeholder="Titulo do produto" value="<?php echo $produto['nm_produto']?>">
+          </div>
+          <div class="row">
+          <input type="number" name="nr_valor" placeholder="Valor do produto" value="<?php echo $produto['vl_produto']?>">
+          </div>
+          <div class="row">
+          <input type="number" name="nr_estoque" placeholder="Numero do estoque" value="<?php echo $produto['nr_estoque']?>">
+          </div>
+
+          <div class="row">
+          <textarea name="ds_produto" placeholder="Descrição"><?php echo $produto['ds_produto']?></textarea>
+          </div>
+          <div class="row">
+          <select name="id_categoria">
     <?php while ($categoria = $script_categoria->fetch(PDO::FETCH_ASSOC)) {?>	
         <option value="<?php echo $categoria['id']?>"><?php echo $categoria['nm_categoria']?></option>
     <?php }?>
-    </select><br>
-    
-    <br>
-    
-    <button type="submit" id="enviar">Enviar</button>
-    </form>
-    <span></span>
+    </select>
+          </div>
+          
+          <div class="row button">
+            
+            <button type="submit" id="enviar" class="btn-join">Enviar</button>
+          </div>
+     
+          </form>
+
+      </div>
+    </div>
+
+
+
+
+    </main>
+<aside class="right"></aside>
+    </div>
+
+
+      
     <script>
       $(document).ready(function() {
       $('#form_produto').submit(function(event) {
@@ -83,7 +132,7 @@ if (!isset($_GET['id'])){
       });
     });
     </script>
-    
+    <?php include('php/footer.php')?>
     </body>
     </html>
     <?php 

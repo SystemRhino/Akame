@@ -80,7 +80,7 @@ nav a:hover{
 .mobile-menu {
     display: none;
     cursor: pointer;
-
+ z-index:10;
 }
 
 .mobile-menu div {
@@ -89,6 +89,7 @@ nav a:hover{
     background: #fff;
     margin: 8px;
     transition: 0.3s;
+   
 }
 
 @media (max-width: 999px) {
@@ -120,6 +121,9 @@ nav a:hover{
     .mobile-menu {
         display: block;
     }
+}
+.phpcssnav{
+    display:block;
 }
 
 .nav-list.active {

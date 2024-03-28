@@ -17,13 +17,28 @@ if (!isset($_SESSION['id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/catalogo.css">
+    
+    <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/login-cadastro.css">
     <title>Carrinho</title>
 </head>
 <body>
-<!-- While Produtos -->
+<?php include('php/navbar.php')?>
+<div class="main">
+    <aside class="left"> 
+    
+    </aside>
 
-<?php
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
+
+
+<div class="containerF">
+      <div class="wrapperF" style="padding:1rem">
+      <?php
 // Verificação se tem produtos
 if ($script_carrinho->rowCount()>0){
     while ($carrinho = $script_carrinho->fetch(PDO::FETCH_ASSOC)) { 
@@ -38,24 +53,44 @@ if ($script_carrinho->rowCount()>0){
         $img_produto = $produto['img_1'];
         
 ?>
-                      <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
+                      
+                            
                                 <img src = "img/<?php echo $img_produto?>" alt = "product image" class="imgr">
                                 <h3><?php echo $produto['nm_produto']?></h3>
                                 <h3>R$<?php echo $produto['vl_produto']?></h3>
                                 <button  onclick="window.location.href = 'php/delete_carrinho.php?id=<?php echo $id_carrinho;?>'">Excluir</button>
-                            </div>
-                        </div>
-                    </div>    
+                            
+                         
 <?php        
     }
         }else{
              echo "Sem produtos no seu carrinho";
         }
     ?>
-    
-    <h2>Total: R$<?php echo $soma;?></h2><button onclick="window.location.href = 'checkout.php?'">Finalizar</button>
+       <div class="row button">
+    <h2>Total: R$<?php echo $soma;?></h2><button onclick="window.location.href = 'checkout.php?' " class="btn-join">Finalizar</button>
+ 
+            
+            
+          </div>
+     
+        
+
+      </div>
+    </div>
+
+
+ 
+
+
+
+    </main>
+<aside class="right"></aside>
+    </div>
+<!-- While Produtos -->
+
+
+    <?php include('php/footer.php')?>
 </body>
 </html>
 <?php }?>

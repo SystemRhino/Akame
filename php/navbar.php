@@ -13,22 +13,25 @@
             <li><a href="catalogo.php">Início</a></li>
             <li><a href="carrinho.php">Carrinho</a></li>
             <li><a href="#">Sobre</a></li>
+            
+
         </ul>
         <a class="logo" href="index.php"><img src="img/logo.png " alt="logo"></a>
         <?php
             if(isset($_SESSION['id'])){
         ?>
-                <div class="nav-user">
-                    <a class="login" href="login.php">Login</a>
-                    <button class="cadastro"href="cadastro.php">Cadastre-se</button>
-                </div>
-        <?php
-            }else{
-        ?>
+                
                 <ul class="nav-user">
                     <li><a href="carrinho.php">Carrinho</a></li>
                     <li><a href="logout.php">Sair</a></li>
                 </ul>
+        <?php
+            }else{
+        ?>
+               <div class="nav-user">
+                    <a class="login" href="login.php">Login</a>
+                    <button class="cadastro"href="cadastro.php">Cadastre-se</button>
+                </div>
         <?php
             }
         ?>

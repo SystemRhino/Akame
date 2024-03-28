@@ -25,7 +25,7 @@ $script_categoria->execute();
 
 <div class="main">
     <aside class="left"> 
-    Left
+    
     </aside>
 
     <main>
@@ -67,8 +67,9 @@ $script_categoria->execute();
 				<td><?php echo $categoria['id']; ?></td>
                 <td><?php echo $categoria['nm_categoria'];?></td>
                 <td>
-                    <button  onclick="window.location.href = 'php/delete_categoria.php?id=<?php echo $categoria['id'];?>'">Excluir</button>
-                    <button onclick="window.location.href = 'edit_categoria.php?id=<?php echo $categoria['id'];?>'">Editar</button>
+                    <button class="btn-join" onclick="window.location.href = 'php/delete_categoria.php?id=<?php echo $categoria['id'];?>' ">Excluir</button>
+                    
+                    <button class="btn-join" onclick="window.location.href = 'edit_categoria.php?id=<?php echo $categoria['id'];?>'">Editar</button>
                 </td>
             </tr>
     <?php }?>
@@ -77,7 +78,7 @@ $script_categoria->execute();
 
 
     </main>
-<aside class="right">right</aside>
+<aside class="right"></aside>
     </div>
 
 	<!-- JS -->
