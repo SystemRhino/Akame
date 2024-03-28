@@ -96,7 +96,7 @@ if ($script_produtos->rowCount()>0){
               Add to Cart <i class = "fas fa-shopping-cart"></i>
             </button>
             
-            <button onclick="window.location.href = 'checkout.php?id=<?php echo $nm_produto;?>'" type = "button" class = "btn">Comprar</button>
+            <button onclick="window.location.href = 'checkout.php'" type = "button" class = "btn">Comprar</button>
 
           </div>
 

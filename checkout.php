@@ -59,6 +59,7 @@ if ($script_carrinho->rowCount()>0){
     ?>
     
     <h2>Total: R$<?php echo $soma;?></h2><button>Finalizar</button>
+  <span></span>
         <form id="form_check">
             <input name="nome" type="text" placeholder="Nome do destinatário"><br>
             <input name="telefone" type="number" placeholder="Telefone"><br>
@@ -79,14 +80,18 @@ if ($script_carrinho->rowCount()>0){
     var form_data = new FormData(this);
 
   $.ajax({
-    url: 'zap.php', // Arquivo PHP para processar os dados
+    url: './php/zap.php', // Arquivo PHP para processar os dados
     type: 'POST',
     data: form_data, 
     contentType: false,
     processData: false,
     success: function(response) {
         console.log(response);
+        if(response == 'erro'){
+          $("span").html('Preencha todos os dados!');
+        }else{
         window.location.href = response;
+        }
       },
     error: function(xhr, status, error) {
     console.log(xhr.responseText);
