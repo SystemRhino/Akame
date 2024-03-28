@@ -19,14 +19,26 @@ if (!isset($_SESSION['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
+    <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/login-cadastro.css">
 </head>
 
 	<!-- JS -->
 	<script src="js/jquery-3.6.0.min.js"></script>
 <body>
-<!-- While Produtos -->
+<?php include('php/navbar.php')?>
+<div class="main">
+    <aside class="left"> 
+  
+    </aside>
 
-<?php
+    <main>
+		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span>
+
+  <?php
 // Verificação se tem produtos
 if ($script_carrinho->rowCount()>0){
     while ($carrinho = $script_carrinho->fetch(PDO::FETCH_ASSOC)) { 
@@ -57,21 +69,72 @@ if ($script_carrinho->rowCount()>0){
              echo "Sem produtos no seu carrinho";
         }
     ?>
-    
-    <h2>Total: R$<?php echo $soma;?></h2><button>Finalizar</button>
-  <span></span>
-        <form id="form_check">
-            <input name="nome" type="text" placeholder="Nome do destinatário"><br>
-            <input name="telefone" type="number" placeholder="Telefone"><br>
-            <input name="rua" type="text" placeholder="Rua">
-            <input name="numero" type="number" placeholder="N°"><br>
-            <input name="complemento" type="text" placeholder="Complemento"><br>
-            <input name="bairro" type="text" placeholder="Bairro"><br>
-            <input name="cidade" type="text" placeholder="Cidade"><br>
-            <input name="estado" type="text" placeholder="Estado">
-            <input name="cep" type="number" placeholder="CEP"><br>
-            <input type="submit" value="Finalizar Compra">
-        </form>
+   
+
+<div class="containerF">
+<span></span>
+      <div class="wrapperF">
+        <div class="title"> <h2>Total: R$<?php echo $soma;?></h2></div>
+        <form id="form_check" class="formF">
+
+        <div class="row">
+        <button class="btn-join">Finalizar</button>
+          </div>
+
+          <div class="row">
+          <input name="nome" type="text" placeholder="Nome do destinatário">
+          </div>
+          
+          <div class="row">
+          <input name="telefone" type="number" placeholder="Telefone">
+          </div>
+          <div class="row">
+          <input name="rua" type="text" placeholder="Rua">
+          </div>
+          <div class="row">
+          <input name="numero" type="number" placeholder="N°">
+          </div>
+          
+          <div class="row">
+          <input name="complemento" type="text" placeholder="Complemento">
+          </div>
+
+          <div class="row">
+          <input name="bairro" type="text" placeholder="Bairro">
+          </div>
+         
+          <div class="row">
+          <input name="cidade" type="text" placeholder="Cidade">
+          </div>
+
+          <div class="row">
+          <input name="estado" type="text" placeholder="Estado">
+          </div>
+
+          <div class="row">
+          <input name="cep" type="number" placeholder="CEP">
+          </div>
+
+          <div class="row button">
+            
+            <input type="submit" value="Finalizar Compra" class="btn-join">
+          </div>
+          
+          </form>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    </main>
+<aside class="right"></aside>
+    </div>
+<!-- While Produtos -->
+
 
         <script>
   $(document).ready(function() {
@@ -101,6 +164,7 @@ if ($script_carrinho->rowCount()>0){
   });
 });
 </script>
+<?php include('php/footer.php')?>
 </body>
 </html>
 <?php }?>

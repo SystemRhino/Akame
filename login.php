@@ -23,7 +23,7 @@ if (isset($_SESSION['id']) and $_SESSION['id'] == 1) {
 </head>
 <body>
     	
-	
+<?php include('php/navbar.php')?>
 
 
 <div class="main">
