@@ -16,9 +16,11 @@
             $newNumber = $currentNumber - 1;
         }
         
-        $sql = "UPDATE tb_carrinho SET nr_quant = :newNumber WHERE id = ".$id_product;
+        $sql = "UPDATE tb_carrinho SET nr_quant = :newNumber WHERE id_user = :id_user AND id_produto = :id_produto";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':newNumber', $newNumber);
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->bindParam(':id_produto', $id_product);
         $stmt->execute();
 
         echo $newNumber; // Retorna o novo número para o JavaScript
