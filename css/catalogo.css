@@ -1,247 +1,218 @@
-@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-:root{
+:root {
     --white: rgba(255, 255, 255);
-    --alice-blue: #f8f9fa;
-    --carribean-green: #40c9a2;
+    --dark-gray: #606060;
+    --dark-red: #8b0000;
     --gray: #ededed;
     --black: #090909;
 }
 
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
-	font-weight: 300;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-	height: 100%;
+html, body {
+    height: 100%;
+    background-color: var(--black);
 }
 
-body{
-	height: 100%;
-	background-color: var(--black);
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.title{
-	font-family: "Metal Mania", system-ui;
-}
-
-@media only screen and (max-width: 600px) {
-    .card {
-        width: 90%;
-    }
-
-    .logo-space {
+/* MOBILE E TABLET*/
+@media screen and (max-width: 850px) {
+    body {
+        font-size: 14px;
+        display: flex;
         flex-direction: column;
-        gap: 0.5em;
-        align-items: center;
-        text-align: center;
+        gap: 1.5em;
+        padding: 1em 0;
     }
 
-    .logo-space .logo img {
-        width: 80px; /* Reduzindo o tamanho do logo */
+    main{
+        background-color: var(--black);
+        display: flex;
+        flex-direction: column;
     }
 
-    .logo-space h3 {
-        font-size: 1.5em; /* Reduzindo o tamanho do texto */
+    #cel{
+        margin-top: 1em;
+        display: flex;
+        justify-content: space-around;
+        gap: 4em;
+    
     }
 
-    .itens-carrinho {
-        height: auto;
-    }
-
-    .itens-carrinho .item {
-        flex-direction: column; /* Ajustando para exibir os itens verticalmente */
-        border-left: none; /* Removendo a borda lateral */
-    }
-
-    .item .image-item img {
-        width: 100%; /* Ajustando o tamanho da imagem para preencher a largura */
-        height: auto; /* Permitindo que a altura seja ajustada automaticamente */
-        margin-bottom: 0.5em; /* Adicionando um espaçamento inferior */
-    }
-
-    .item .info-item {
+    .list-filter #cel{
         width: 100%;
-    }
 
-    .info-item .action-product {
-        flex-direction: column; /* Ajustando a disposição dos elementos de ação */
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
 
-    .info-carrinho {
-        flex-direction: column; /* Ajustando a disposição dos elementos de informações do carrinho */
+    .list-filter #cel select{
+        appearance: button;
+        background-color: var(--black);
+        width: 75%;
+        padding: 4px;
+        color: var(--white);
+        border: 1px solid var(--white);
+        border-radius: 4px;
+
+        font-size: 20px;
+    }
+
+    .list-filter #cel select option{
+        background-color: var(--dark-gray);
+        color: var(--black);
+    }
+
+    .list-product{
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+
+    }
+    .list-product .product{
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        padding-top: 0.5em; /* Reduzindo o espaçamento superior */
     }
 
-    .info-carrinho button {
-        padding: 0.5em 1em; /* Reduzindo o tamanho do botão */
-        font-size: 14px; /* Reduzindo o tamanho da fonte */
+    .list-product .product img{
+        display: block;
+        width: 20em;
+
+        filter: drop-shadow(2px 2px 4px var(--white));
     }
-}
+    
+    #desktop{
+        display: none;
+    }
+}   
+
+/* TABLETS MAIORES E PC*/
+@media only screen and (min-width: 851px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--black);
+    }
+
+    body main {
+        height: auto;
+        padding: 3em 0;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 2em;
+
+    }
+
+    main .list-filter {
+        width: auto;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main .list-filter #desktop .filter-buttons{
+        width: 15em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1em;
+        overflow-y: auto;
+    }
+
+    #desktop{
+        width: 100%;
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 2em;
+    }
+
+    .list-filter .filter {
+        background-color: var(--black);
+        width: 100%;
+        height: 3.5em;
+        cursor: pointer;
+        border: 1px solid var(--gray);
+        border-radius: 10%;
+        color: var(--white);
+        font-size: 1em;
+    }
+
+    .list-filter .filter:hover {
+        border: 1px solid var(--dark-gray);
+    }
+
+    .list-filter .filtro-ativo {
+        background-color: var(--dark-gray);
+        color: var(--white);
+        border: 1.5px solid var(--white);
+    }
+
+    .list-filter .remove-button{
+        width: 15em;
+    }
+
+    .list-filter .remove {
+        height: 3.5em;
+        width: 100%;
+        font-size: 1em;
+        color: var(--white);
+        background-color: var(--black);
+        border: 1px solid var(--gray);
+        border-radius: 10%;
+        cursor: pointer;
+    }
+
+    .list-filter .remove:hover{
+        border: 1px solid var(--dark-red);
+    }
+
+    .list-filter .remove i {
+        margin-right: 5px;
+    }
+
+    main .list-product {
+        height: 100%;
+        width: 90em;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    .list-product .product {
+        flex: 0 1 calc(30% - 1em);
+        margin-bottom: 1em; 
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 
-@media only screen and (min-width: 601px) {
-	/* CARD */
+    .list-product .product img {
+        cursor: pointer;
+        width: 100%;
+        max-height: 20em;
+        display: block;
+        filter: drop-shadow(2px 2px 4px var(--white));
+    }
 
-	.card{
-		width: 30em;
-		padding: 1.5em;
-		border: 3px	 solid white;
-		border-radius: 4px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		row-gap: 3em;
-	}
-
-	.card .logo-space{
-		width: 100%;
-
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1em;
-	}
-
-	.logo-space .logo img{
-		width: 100px;
-		display: block;
-	}
-
-	.logo-space h3{
-		font-size: 2em;	
-		color: white;
-	}
-
-	/* LISTA CARRINHO */
-	.card .itens-carrinho{
-		width: 100%; 
-		padding: 1em 0;
-		height: 13em;
-	    overflow-y: auto;
-	    display: flex;
-	    flex-direction: column;
-	    gap: .5em;
-
-	    scrollbar-width: thin;
-	}
-
-	/* SCROLL CARRINHO */
-
-	.itens-carrinho::-webkit-scrollbar {
-	  width: 12px;
-	}
-
-	.itens-carrinho::-webkit-scrollbar-track {
-	  background: var(--gray);
-	}
-
-	.itens-carrinho::-webkit-scrollbar-thumb {
-	  background-color: var(--black);
-	  border-radius: 20px;
-	  border: 3px solid var(--gray);
-	}
-
-	/* ITEM */
-	.itens-carrinho .item{
-	    border-left: 0.5px solid #fff;
-		width: auto;
-		height: auto;
-		display: flex;
-		justify-content: space-between;
-	}
-
-
-	.item .image-item{
-		color: white;
-		width: 6em;
-	}
-
-	.item .image-item img{
-		filter: drop-shadow(0 0 4px white);
-		display: block;
-		height: 6em;
-	}
-
-	.item .info-item {
-		height: 6em;
-		width: 80%;
-		padding: 1em;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		color: var(--white);
-	}
-
-	.item .info-item > *{
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.item .info-item .action-product .quant-space{
-		display: flex;
-		height: 1.5em;
-	}
-
-	.item .info-item .action-product .quant-space input,
-	.item .info-item .action-product .quant-space button{
-		width: 2em;
-		text-align: center;
-	}
-	/* REMOVER SETAS DO INPUT NUMBER #QUANT*/
-	input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-	  -webkit-appearance: none;
-	  margin: 0;
-	}
-
-	.card .info-carrinho{
-		color: white;
-		width: 100%;
-		padding-top: 1em;
-		border-top: .5px solid white;
-
-
-		display: flex;
-		justify-content: space-between;
-		align-itens: flex-end;
-	}
-
-	.card .info-carrinho button{
-		padding: 0.8em 1.8em;
-	    border: 2px solid ;
-	    overflow: hidden;
-	    background-color: transparent;
-	    text-align: center;
-	    text-transform: uppercase;
-	    font-size: 16px;
-	    transition: .3s;
-	    z-index: 1;
-	    font-family: inherit;
-	    color: var(--white);
-	    cursor:pointer;
-	}
-	   
-	.card .info-carrinho button:hover {
-	    background: var(--white);
-	    color: var(--black);
-	}
-
-	/* ICON LIXEIRA */
-	.fa-trash:before {
-	    content: "\f1f8";
-	    color: white;
-	    font-size: 1em;
-	}
+    #cel{
+        display: none;
+    }
 }
