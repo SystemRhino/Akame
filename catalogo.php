@@ -1,93 +1,122 @@
 <?php
-include('./php/conecta.php');
+    session_start();
+    include('php/conecta.php');
 
-if(isset($_GET['categoria'])){
-    $nm_categoria = $_GET['categoria'];
-    //Consulta Categoria
-    $script_categoria = $conn->prepare("SELECT * FROM tb_categoria WHERE nm_categoria = '$nm_categoria'");
-    $script_categoria->execute();
-    $categoria = $script_categoria->fetch(PDO::FETCH_ASSOC);
-    $id_categoria = $categoria['id'];
+    if(isset($_GET['categoria'])) {
+        $categoria = $_GET['categoria'];
 
-    //Consulta Produtos
-    $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE id_categoria = '$id_categoria'");
-    $script_produtos->execute();
+        // Consulta categoria
+        $sql = "SELECT * FROM tb_categoria WHERE nm_categoria = '$categoria'";
+        $consulta_categoria = $conn->prepare($sql);
+        $consulta_categoria->execute();
+        $categoria = $consulta_categoria->fetch(PDO::FETCH_ASSOC);
+        $id_categoria = $categoria['id'];
+
+        // Consulta dos produtos dessa categoria
+        $sql = "SELECT * FROM tb_products WHERE id_categoria = '$id_categoria'";
+        $consulta_produto = $conn->prepare($sql);
+        $consulta_produto->execute();
+        $produtos = $consulta_produto->fetchAll(PDO::FETCH_ASSOC);
     }else{
-        $script_produtos = $conn->prepare("SELECT * FROM tb_products ORDER BY id DESC");
-        $script_produtos->execute();
+        // Exibe todos os produtos
+        $sql = "SELECT * FROM tb_products ORDER BY id DESC";
+        $consulta_produto = $conn->prepare($sql);
+        $consulta_produto->execute();
+        $produtos = $consulta_produto->fetchAll(PDO::FETCH_ASSOC);
     }
-
-//Consulta Categoria
-$script_categoria = $conn->prepare("SELECT * FROM tb_categoria ORDER BY id DESC");
-$script_categoria->execute();
 ?>
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/catalogo.css">
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/catalogo.css">
 
-    <title>Produtos - Akame</title>
-    <style>
-        #teste{
-            filter: drop-shadow(2px 2px 4px #ffff);
-        }
-    </style>
-      
-</head>
-<body>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <title>Produtos - Akame</title>
+    </head>
+    <body>
+        <?php include('php/navbar.php');?>
+        <main>
+            <div class="list-filter">
+                <div id="cel">
+                    <select id="categoria">
+                        <option disabled selected>Categorias</option>
+                        <option value="catalogo.php">Remover filtros</option>
+                        <?php
+                            // Consulta categorias
+                            $sql = "SELECT * FROM tb_categoria ORDER BY id DESC";
+                            $consulta_categorias = $conn->prepare($sql);
+                            $consulta_categorias->execute();
+                            $categorias = $consulta_categorias->fetchAll(PDO::FETCH_ASSOC);
 
-<?php include('php/navbar.php');?>
+                            foreach ($categorias as $filtro){
+                                $nm_categoria = $filtro['nm_categoria'];
+                            ?>
+                            <option value="catalogo.php?categoria=<?php echo $nm_categoria;?>"><?php echo $nm_categoria;?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div id="desktop">
+                    <!-- PARA PC/TABLETS MAIORES -->
+                    <div class="remove-button">
+                        <button class="remove" onclick="window.location.href='catalogo.php'"><i class="fas fa-trash"></i>Remover filtros</button>
+                    </div>
+                    <div class="filter-buttons">
+                        <?php
+                            // Consulta categorias
+                            $sql = "SELECT * FROM tb_categoria ORDER BY id DESC";
+                            $consulta_categorias = $conn->prepare($sql);
+                            $consulta_categorias->execute();
+                            $categorias = $consulta_categorias->fetchAll(PDO::FETCH_ASSOC);
 
-<div class="main">
-    <aside class="left"> 
-    
-    </aside>
-
-    <main>
-    <div class = "products">
-            <div class = "containerCR">
-
-                <div class = "product-items">
-<!-- While Produtos -->
-
-<?php
-// Verificação se tem produtos
-if ($script_produtos->rowCount()>0){
-    while ($produto = $script_produtos->fetch(PDO::FETCH_ASSOC)) { 
-        //Consulta Autor
-        $nm_produto = $produto['nm_produto'];
-        $img_produto = $produto['img_1'];
-        
-?>
-                      <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img onclick="window.location.href = 'produto.php?id=<?php echo $nm_produto;?>'" src = "img/<?php echo $img_produto?>" alt = "product image" class="imgr">
-                            </div>
-                        </div>
-                    </div>    
-<?php        
-    }
-        }else{
-             echo "Sem produtos";
-        }
-    ?>
-
-       
-
+                            foreach ($categorias as $filtro){
+                                $nm_categoria = $filtro['nm_categoria'];
+                                $filtroAtivo = isset($_GET['categoria']) && $_GET['categoria'] == $nm_categoria;
+                                ?>
+                                <button class="filter <?php echo $filtroAtivo ? 'filtro-ativo' : ''; ?>" onclick="window.location.href='catalogo.php?categoria= <?php echo $nm_categoria; ?>'"><?php echo $nm_categoria;?></button>
+                        <?php
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="list-product">
+                <?php
+                    if(!isset($produtos)){
+                        echo "<h3>Não há produtos a serem exibidos</h3>";
+                    }else{
+                        foreach ($produtos as $produto) {?>
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="img/<?php echo $produto['img_1'];?>" onmouseover="changeImage(this, '<?php echo 'img/'.$produto['img_2'];?>')" onmouseout="changeImage(this, '<?php echo 'img/'.$produto['img_1'];?>')" onclick="window.location.href='produto.php?id=<?php echo $produto['img_1'];?>'">
+                                </div>
+                                <div class="product-content">
+                                    <h3>R$ <?php echo $produto['vl_produto'];?></h3>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                ?>
+            </div>
+        </main>
+        <?php include('php/footer.php');?>
+        <script>
+            function changeImage(element, newImage) {
+                element.src = newImage;
+            }
 
-    </main>
-<aside class="right"></aside>
-    </div>
-
-<?php include('php/footer.php');?>
-</body>
+            document.getElementById('categoria').addEventListener('change', function() {
+                // Obtém o valor selecionado
+                var selecionado = this.value;
+                window.location.href = selecionado;
+            });
+        </script>
+    </body>
 </html>
