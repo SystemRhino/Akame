@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('php/navbar.php');
 if (!isset($_SESSION['id'])){
     header('location:index.php');
 }else{
@@ -25,7 +25,6 @@ if (!isset($_SESSION['id'])){
     <title>Carrinho</title>
 </head>
 <body>
-<?php include('php/navbar.php')?>
 <div class="main">
     <aside class="left"> 
     
@@ -47,7 +46,7 @@ if ($script_carrinho->rowCount()>0){
         $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE id='$id_produto'");
         $script_produtos->execute();
         $produto = $script_produtos->fetch(PDO::FETCH_ASSOC);
-        $soma = $soma+$produto['vl_produto'];
+        $soma += $produto['vl_produto'];
         //Consulta Produto
         $nm_produto = $produto['nm_produto'];
         $img_produto = $produto['img_1'];
@@ -61,18 +60,15 @@ if ($script_carrinho->rowCount()>0){
                                 <button  onclick="window.location.href = 'php/delete_carrinho.php?id=<?php echo $id_carrinho;?>'">Excluir</button>
                             
                          
-<?php        
-    }
+<?php }?>
+<div class="row button">
+    <h2>Total: R$<?php echo $soma;?></h2><button onclick="window.location.href = 'checkout.php?' " class="btn-join">Finalizar</button>
+          </div>
+<?php
         }else{
              echo "Sem produtos no seu carrinho";
         }
     ?>
-       <div class="row button">
-    <h2>Total: R$<?php echo $soma;?></h2><button onclick="window.location.href = 'checkout.php?' " class="btn-join">Finalizar</button>
- 
-            
-            
-          </div>
      
         
 
@@ -87,7 +83,7 @@ if ($script_carrinho->rowCount()>0){
     </main>
 <aside class="right"></aside>
     </div>
-<!-- While Produtos -->
+
 
 
     <?php include('php/footer.php')?>

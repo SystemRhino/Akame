@@ -1,12 +1,12 @@
 <?php
-session_start();
+include('php/navbar.php');
 // Verificação da sessão
 if (isset($_SESSION['id'])) {
   	header('location:catalogo.php');
   }  
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,6 @@ if (isset($_SESSION['id'])) {
 
 </head>
 <body>
-	<?php include('php/navbar.php')?>
     	
 	
 

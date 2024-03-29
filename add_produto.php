@@ -1,7 +1,7 @@
 <?php 
-session_start();
+include('php/navbar.php');
 if ($_SESSION['nivel'] != 1) {
-	header('location:../');
+	header('location:./');
 }else{
 include './php/conecta.php';
 
@@ -29,7 +29,6 @@ $script_user->execute();
     <title>Gerenciar Produtos</title>
 </head>
 <body>
-<?php include('php/navbar.php')?>
 
 <div class="main">
     <aside class="left"> 
