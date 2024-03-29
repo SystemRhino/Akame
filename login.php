@@ -1,9 +1,11 @@
 <?php
 include('php/navbar.php');
 // Verificação da sessão
-if (isset($_SESSION['id'])) {
-  	header('location:catalogo.php');
-  }  
+if (isset($_SESSION['id']) and $_SESSION['id'] == 1) {
+  	header('location:adm.php');
+  } else if (isset($_POST['']) and $_SESSION['id'] != 1){
+    header('location:catalogo.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="pt">
