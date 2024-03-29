@@ -12,29 +12,25 @@
         <ul class="nav-list">
             <li><a href="catalogo.php">Início</a></li>
             <li><a href="carrinho.php">Carrinho</a></li>
-            <li><a href="#">Sobre</a></li>
-            
-
+<?php if(isset($_SESSION['id']) and $_SESSION['id'] == 1){?>
+            <li><a href="add_produto.php">Gerenciar Produtos</a></li>
+            <li><a href="add_categoria.php">Gerenciar Categorias</a></li>
+            <li><a href="users.php">Gerenciar Users</a></li>
+<?php }?>
         </ul>
         <a class="logo" href="index.php"><img src="img/logo.png " alt="logo"></a>
-        <?php
-            if(isset($_SESSION['id'])){
-        ?>
+<?php if(isset($_SESSION['id'])){?>
                 
                 <ul class="nav-user">
                     <li><a href="carrinho.php">Carrinho</a></li>
                     <li><a href="logout.php">Sair</a></li>
                 </ul>
-        <?php
-            }else{
-        ?>
+<?php }else{ ?>
                <div class="nav-user">
                     <a class="login" href="login.php">Login</a>
                     <button class="cadastro"href="cadastro.php">Cadastre-se</button>
                 </div>
-        <?php
-            }
-        ?>
+<?php }?>
         <div class="mobile-menu">
             <div class="line1"></div>
             <div class="line2"></div>
