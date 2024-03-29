@@ -36,7 +36,7 @@
                 $stmt = $conn->prepare($sql);
                 $stmt->execute(array(':id_user' => $id_user, ':id_produto' => $id_produto, ':quantidade' => $quant));
             }
-            echo "<script>history.go(-1);</script>";
+            //echo "<script>history.go(-1);</script>";
         }
     } catch (Exception $e) {
         echo "Erro: " . $e->getMessage();

@@ -1,6 +1,5 @@
 <?php
 include('./php/conecta.php');
-include('footer.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt">

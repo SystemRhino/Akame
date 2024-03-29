@@ -1,12 +1,14 @@
 <?php
-session_start();
+include('php/navbar.php');
 // Verificação da sessão
-if (isset($_SESSION['id'])) {
-  	header('location:catalogo.php');
-  }  
+if (isset($_SESSION['id']) and $_SESSION['id'] == 1) {
+  	header('location:adm.php');
+  } else if (isset($_POST['']) and $_SESSION['id'] != 1){
+    header('location:catalogo.php');
+  }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +22,6 @@ if (isset($_SESSION['id'])) {
 
 </head>
 <body>
-	<?php include('php/navbar.php')?>
     	
 	
 

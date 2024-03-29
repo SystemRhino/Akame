@@ -1,15 +1,15 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['id'])){
-        header('location: index.php');
-    }else{
-        include'php/conecta.php';
-        $id = $_SESSION['id'];
-        $script_carrinho = $conn->prepare("SELECT * FROM tb_carrinho WHERE id_user = '$id'");
-        $script_carrinho->execute();
-
-        $script_produtos = $conn->prepare("SELECT * FROM tb_products");
-        $script_produtos->execute();
+include('php/navbar.php');
+if (!isset($_SESSION['id'])){
+    header('location:index.php');
+}else{
+    include'./php/conecta.php';
+    $id = $_SESSION['id'];
+    $script_carrinho = $conn->prepare("SELECT * FROM tb_carrinho WHERE id_user = '$id'");
+    $script_carrinho->execute();
+    
+    $script_produtos = $conn->prepare("SELECT * FROM tb_products");
+    $script_produtos->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -84,6 +84,7 @@
         var id_produto = $(this).data('id-produto');
         updateNumber('decrement', id_produto, $(this));
     });
+
 
     function updateNumber(action, id_produto, button) {
         var quant = parseInt(button.closest('.action-product').find('#quant').val()); // Parse para inteiro

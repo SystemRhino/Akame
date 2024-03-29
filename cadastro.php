@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])) {
   } 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
 	<title>Cadastro | J-tec</title>
 	<meta charset="utf-8">

@@ -1,17 +1,22 @@
 <?php
+// Verificando se os campos estão preenchidos
 if($_POST['nome'] == "" or $_POST['telefone'] == "" or $_POST['telefone'] == "" or $_POST['numero'] == "" or $_POST['bairro'] == "" or $_POST['cidade'] == "" or $_POST['estado'] == "" or $_POST['cep'] == "" or $_POST['complemento'] == ""){
     echo "erro";
 }else{
     session_start();
     include'conecta.php';
+    // Salvando dados da data e horario
     date_default_timezone_set('America/Sao_Paulo');
     $date = date('Y-m-d H:i');
+
+    // Consultando carrinho
     $id = $_SESSION['id'];
     $script_carrinho = $conn->prepare("SELECT * FROM tb_carrinho WHERE id_user = '$id'");
     $script_carrinho->execute();
     $text_produtos = "";
     $soma = 0;
 
+    // While para calcular o valor dos produtos totais no carrinho
     while ($carrinho = $script_carrinho->fetch(PDO::FETCH_ASSOC)){
         $id_produto = $carrinho['id_produto'];
         $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE id='$id_produto'");

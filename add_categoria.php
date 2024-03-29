@@ -1,5 +1,5 @@
 <?php 
-session_start();
+include('php/navbar.php');
 if ($_SESSION['nivel'] != 1) {
 	header('location:../');
 }else{
@@ -21,7 +21,6 @@ $script_categoria->execute();
     <title>Gerenciar Categorias</title>
 </head>
 <body>
-<?php include('php/navbar.php')?>
 
 <div class="main">
     <aside class="left"> 
