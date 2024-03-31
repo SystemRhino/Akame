@@ -8,7 +8,7 @@ if (isset($_SESSION['id'])) {
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<title>Cadastro | J-tec</title>
+	<title>Cadastro | Akame</title>
 	<meta charset="utf-8">
 </head>
 	<script src="js/jquery-3.6.0.min.js"></script>
@@ -25,15 +25,14 @@ if (isset($_SESSION['id'])) {
 
 <div class="main">
     <aside class="left"> 
-    Left
+    
     </aside>
 
     <main>
-		<!-- Tag "span" usada para retorno do ajax -->
-	<span></span>
-
 
 <div class="containerF">
+  <!-- Tag "span" usada para retorno do ajax -->
+	<span></span><br><br>
       <div class="wrapperF">
         <div class="title">Cadastro</div>
         <form id="form_cadastro" method="post" enctype="multipart/form-data" class="formF">
@@ -54,7 +53,7 @@ if (isset($_SESSION['id'])) {
           
           <div class="pass"><a href="#">Forgot password?</a></div>
           <div class="row button">
-            <button type="submit" id="entrar" class="btn-join">Entrar</button>
+            <button type="submit" id="entrar" class="btn-join">Cadastrar</button>
           </div>
           <div class="signup-link">Not a member? <a href="login.php">Akame | login</a></div>
           </form>
@@ -68,7 +67,7 @@ if (isset($_SESSION['id'])) {
 
 
     </main>
-<aside class="right">right</aside>
+<aside class="right"></aside>
     </div>
 
 <?php include('php/footer.php')?>

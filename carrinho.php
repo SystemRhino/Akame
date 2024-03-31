@@ -24,6 +24,7 @@ if (!isset($_SESSION['id'])){
 <body>
     <div class="card">
         <div class="logo-space">
+        <i class="fa fa-chevron-left fa-lg" id="back" aria-hidden="true" onclick="history.go(-1);"></i>
             <a class="logo" href="index.php"><img src="img/logo.png " alt="logo"></a>
             <h3 class="title">Meu carrinho</h3>
         </div>
@@ -63,7 +64,7 @@ if (!isset($_SESSION['id'])){
             <?php         
                     }
                 }else{
-                    echo "<h2 class='title' id='resp_carrinho'>Não há produtos no seu carrinho!</h2>";
+                    echo "<h2 class='title' style='color:white;' id='resp_carrinho'>Não há produtos no seu carrinho!</h2>";
                 }
             ?>
         </div>
@@ -82,7 +83,11 @@ if (!isset($_SESSION['id'])){
 
     $('.decrementButton').click(function() {
         var id_produto = $(this).data('id-produto');
-        updateNumber('decrement', id_produto, $(this));
+        if(id_produto = 1){
+    
+        }else{
+            updateNumber('decrement', id_produto, $(this));
+        }
     });
 
 

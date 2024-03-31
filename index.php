@@ -27,7 +27,7 @@ include('./php/conecta.php');
 <div id="enterPag">
   <div class="enter">
     <center>
-<img src="./img/3dgifmaker87728.gif" alt="" class="imglogo"><br>
+<img src="./img/logo.png" alt="" class="imglogo"><br>
     <h1 id="clickEnter" style="cursor:pointer;">[ENTER]</h1>
     </center>
   </div>

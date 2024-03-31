@@ -27,15 +27,16 @@ if (isset($_SESSION['id']) and $_SESSION['nivel'] == 1) {
 
 <div class="main">
     <aside class="left"> 
-    Left
+    
     </aside>
 
     <main>
-		<!-- Tag "span" usada para retorno do ajax -->
-	<span></span>
+
 
 
 <div class="containerF">
+  		<!-- Tag "span" usada para retorno do ajax -->
+	<span></span><br><br>
       <div class="wrapperF">
         <div class="title">Login</div>
         <div class="formF" action="#">
@@ -51,7 +52,7 @@ if (isset($_SESSION['id']) and $_SESSION['nivel'] == 1) {
           <div class="row button">
             <button id="entrar" class="btn-join">Entrar</button>
           </div>
-          <div class="signup-link">Not a member? <a href="cadastro.php">Akame | login</a></div>
+          <div class="signup-link">Not a member? <a href="cadastro.php">Akame | register</a></div>
         </div>
       </div>
     </div>
@@ -62,7 +63,7 @@ if (isset($_SESSION['id']) and $_SESSION['nivel'] == 1) {
 
 
     </main>
-<aside class="right">right</aside>
+<aside class="right"></aside>
     </div>
 
 
