@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['nivel'] != 1){
-    header('location:../index.php');
+    header('location:../catalogo.php');
 }else{
 	include('conecta.php');
 			// Salvando dados do POST
@@ -31,7 +31,7 @@ if($_SESSION['nivel'] != 1){
 			try {
 			  $att_produto = $conn->prepare("UPDATE tb_products SET nm_produto = '$nm_produto', vl_produto = '$vl_produto', nr_estoque = '$nr_estoque', ds_produto = '$ds_produto', id_categoria = '$categoria'WHERE id = '$id'"); // Pegar id da produto
 			  $att_produto->execute();
-			  echo "<meta HTTP-EQUIV='refresh' CONTENT='0'>";
+			  echo "<script>history.go(-1);</script>";
 			} catch(PDOException $e) {
 			    echo $e;
 			}
@@ -43,7 +43,7 @@ if($_SESSION['nivel'] != 1){
 						// Upadate
 						$att_user = $conn->prepare("UPDATE tb_products SET nm_produto = '$nm_produto', vl_produto = '$vl_produto', nr_estoque = '$nr_estoque', ds_produto = '$ds_produto', id_categoria = '$categoria', img_1 = '$nomeFinal', img_2 = '$nomeFinal2' WHERE id = '$id'");
 						$att_user->execute();
-						echo "<meta HTTP-EQUIV='refresh' CONTENT='0'>";
+						echo "<script>history.go(-1);</script>";
 					}else{
 						echo 'erro';
 					}
