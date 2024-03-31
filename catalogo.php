@@ -43,22 +43,34 @@
         <main>
             <div class="list-filter">
                 <div id="cel">
-                    <select id="categoria">
+                   <select id="categoria">
                         <option disabled selected>Categorias</option>
                         <option value="catalogo.php">Remover filtros</option>
                         <?php
-                            // Consulta categorias
-                            $sql = "SELECT * FROM tb_categoria ORDER BY id DESC";
-                            $consulta_categorias = $conn->prepare($sql);
-                            $consulta_categorias->execute();
-                            $categorias = $consulta_categorias->fetchAll(PDO::FETCH_ASSOC);
+                        // Consulta categorias
+                        $sql = "SELECT * FROM tb_categoria ORDER BY id DESC";
+                        $consulta_categorias = $conn->prepare($sql);
+                        $consulta_categorias->execute();
+                        $categorias = $consulta_categorias->fetchAll(PDO::FETCH_ASSOC);
 
-                            foreach ($categorias as $filtro){
-                                $nm_categoria = $filtro['nm_categoria'];
-                            ?>
-                            <option value="catalogo.php?categoria=<?php echo $nm_categoria;?>"><?php echo $nm_categoria;?></option>
-                        <?php
+                        foreach ($categorias as $filtro) {
+                            $id_categoria = $filtro['id'];
+                            $nm_categoria = $filtro['nm_categoria'];
+
+                            // Consulta para verificar se há produtos para esta categoria
+                            $sql = "SELECT * FROM tb_products WHERE id_categoria = :id_categoria";
+                            $consulta_produto = $conn->prepare($sql);
+                            $consulta_produto->bindParam(':id_categoria', $id_categoria, PDO::PARAM_INT);
+                            $consulta_produto->execute();
+                            $resultado = $consulta_produto->fetch(PDO::FETCH_ASSOC);
+
+                            // Se houver produtos, exibe a categoria como uma opção
+                            if ($resultado > 0) {
+                                ?>
+                                <option value="catalogo.php?categoria=<?php echo urlencode($nm_categoria); ?>"><?php echo $nm_categoria; ?></option>
+                                <?php
                             }
+                        }
                         ?>
                     </select>
                 </div>
@@ -79,7 +91,7 @@
                                 $nm_categoria = $filtro['nm_categoria'];
                                 $filtroAtivo = isset($_GET['categoria']) && $_GET['categoria'] == $nm_categoria;
                                 ?>
-                                <button class="filter <?php echo $filtroAtivo ? 'filtro-ativo' : ''; ?>" onclick="window.location.href='catalogo.php?categoria= <?php echo $nm_categoria; ?>'"><?php echo $nm_categoria;?></button>
+                                <button class="filter <?php echo $filtroAtivo ? 'filtro-ativo' : ''; ?>" onclick="window.location.href='catalogo.php?categoria=<?php echo $nm_categoria; ?>'"><?php echo $nm_categoria;?></button>
                         <?php
                             }
                         ?>

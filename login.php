@@ -1,10 +1,10 @@
 <?php
-include('php/navbar.php');
+session_start();
 // Verificação da sessão
-if (isset($_SESSION['id']) and $_SESSION['id'] == 1) {
-  	header('location:adm.php');
-  } else if (isset($_POST['']) and $_SESSION['id'] != 1){
-    header('location:catalogo.php');
+if (isset($_SESSION['id']) and $_SESSION['nivel'] == 1) {
+  	header('location: gestao_loja.php');
+  } else if (isset($_POST['id']) and $_SESSION['nivel'] != 1){
+    header('location: catalogo.php');
   }
 ?>
 <!DOCTYPE html>
@@ -12,11 +12,10 @@ if (isset($_SESSION['id']) and $_SESSION['id'] == 1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/navbar.css">
-	<link rel="stylesheet" href="css/login-cadastro.css">
-
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/login-cadastro.css">
 
     <title>Login</title>
 

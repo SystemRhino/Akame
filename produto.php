@@ -1,11 +1,11 @@
 <?php
-  if(!isset($_GET['id'])){
+    if(!isset($_GET['id'])){
       header('location: catalogo.php');
-  }else{
-    include('php/conecta.php');
-    $caminho_img = $_GET['id'];
-    $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  img_1 = '$caminho_img'");
-    $script_produtos->execute(); 
+    }else{
+      include('php/conecta.php');
+      $caminho_img = $_GET['id'];
+      $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  img_1 = '$caminho_img'");
+      $script_produtos->execute(); 
     if($script_produtos->rowCount() == 0){
       header("Location: catalogo.php");
     }else{
@@ -30,7 +30,7 @@
             <div class = "product-imgs">
                 <div class = "img-display">
                     <div class = "img-showcase">
-                        <img src="img/<?php echo $produto['img_1'];?>" alt="shoe image">
+                        <img src="img/<?php echo $produto['img_1'];?>">
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <div class="purchase-info">
                     <input type="number" min="1" value="1" id="quant">
                     <button id="cart" type="button" class="btn" onclick="addCarrinho();">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                    <button onclick="window.location.href='checkout.php?id=<?php echo $nm_produto;?>'" type = "button" class="btn">Comprar</button>
+                    <button onclick="window.location.href='carrinho.php?id=<?php echo $nm_produto;?>'" type = "button" class="btn">Comprar</button>
                 </div>
             </div>
         </div>

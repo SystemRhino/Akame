@@ -1,9 +1,9 @@
 <?php
-include('php/navbar.php');
+session_start();
 if (!isset($_SESSION['id'])){
-    header('location:index.php');
+    header('location: catalogo.php');
 }else{
-    include'./php/conecta.php';
+    include('php/conecta.php');
     $id = $_SESSION['id'];
     $script_carrinho = $conn->prepare("SELECT * FROM tb_carrinho WHERE id_user = '$id'");
     $script_carrinho->execute();
