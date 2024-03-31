@@ -19,9 +19,9 @@ if($_POST['nm_produto'] == "" or $_POST['nr_valor'] == "" or $_POST['ds_produto'
     $nm_produto = $_POST['nm_produto'];
     $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  nm_produto = '$nm_produto'");
     $script_produtos->execute();
-if ($script_produtos->rowCount() > 0) {
+    if ($script_produtos->rowCount() > 0) {
         echo "Nome de produto já cadastrado!";
-   }else{
+    }else{
         // Verificando a extensão das imagens
         if($ext_1 == '.jpg' || $ext_1 == 'jpeg' || $ext_1 == '.png' || $ext_2 == '.jpg' || $ext_2 == 'jpeg' || $ext_2 == '.png'){
             try{

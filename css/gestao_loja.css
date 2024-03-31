@@ -1,0 +1,196 @@
+:root {
+    --black: #090909;
+    --white: #ffffff;
+    --gray: #606060;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins',sans-serif;
+}
+
+html, body{
+	height: 100%;
+}
+
+body{
+	background-color: var(--black);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 3em;
+}
+
+main{
+	display: flex;
+	gap: 2em;
+	width: 90%;
+}
+
+.form{
+	width: 550px;
+	height: 620px;
+	border: 3px solid var(--white);
+	border-style:solid;
+	border-radius: 5px;
+}
+
+.form .title{
+	height: 90px;
+	border-bottom-style:solid;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 30px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form form{
+	width: 100%;
+	padding: 30px 25px 25px 25px;
+}
+
+.form form .row{
+	height: 45px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.form form .row input{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	padding-left:1rem;
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+	font-size: 16px;
+	transition: all 0.3s ease;
+}
+
+form .row input::placeholder{
+	color: #999;
+}
+
+form .row input[type="file"]{
+	color: var(--white);
+	font-size: 13px;
+	height: 2em;
+}
+
+.form form .row i{
+	position: absolute;
+	width: 47px;
+	height: 100%;
+	color: #fff;
+	font-size: 18px;
+	background: #16a085;
+	border: 1px solid #16a085;
+	border-radius: 5px 0 0 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button.btn-join{
+	padding: 0.8em 1.8em;
+    border: 2px solid ;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    text-deconration: none;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor:pointer;
+}
+   
+button.btn-join:hover {
+	background: var(--white);
+	color: #111;
+}
+
+.list-product{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em 1em;
+}
+
+.list-product .product{
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.list-product .product img{
+    display: block;
+    width: 17em;
+    height: 21em;
+    filter: drop-shadow(2px 2px 4px var(--white));
+}
+
+.list-product .product .product-action{
+	width: 100%;
+	height: 3em;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+a.btn-join {
+    display: inline-block; /* Adiciona display inline-block para que o link se comporte como um bloco */
+    padding: 0.8em 1.8em;
+    border: 2px solid ;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none; /* Remove sublinhado padrão dos links */
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor: pointer;
+}
+
+a.btn-join:hover {
+    background: var(--white);
+    color: #111;
+}
+
+//LIXEIRA
+.product .product-action a{
+	height: 100%;
+	width: 3em;
+	border-radius: 2px;
+	border: 1px solid var(--white);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.product .product-action a:hover{
+	border-color: var(--gray);
+}
+
+.fa-trash:before {
+    content: "\f1f8";
+    font-size: 1.5em;
+    color: var(--white);
+}

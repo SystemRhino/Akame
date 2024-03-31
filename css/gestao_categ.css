@@ -1,0 +1,201 @@
+:root {
+    --black: #090909;
+    --white: #ffffff;
+    --gray: #606060;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins',sans-serif;
+	border-radius: 4px;
+}
+
+html, body{
+	height: 100%;
+}
+
+body{
+	background-color: var(--black);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 3em;
+}
+
+main{
+	display: flex;
+	gap: 2em;
+	width: 70%;
+}
+
+.form{
+	width: 550px;
+	height: 290px;
+	border: 3px solid var(--white);
+	border-style:solid;
+	border-radius: 5px;
+}
+
+.form .title{
+	height: 90px;
+	border-bottom-style:solid;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 30px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form form{
+	width: 100%;
+	padding: 30px 25px 25px 25px;
+}
+
+.form form .row{
+	height: 45px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.form form .row input{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	padding-left:1rem;
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+	font-size: 16px;
+	transition: all 0.3s ease;
+}
+
+form .row input::placeholder{
+	color: #999;
+}
+
+button.btn-join{
+	padding: 0.8em 1.8em;
+    border: 2px solid ;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    text-deconration: none;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor:pointer;
+}
+   
+button.btn-join:hover {
+	background: var(--white);
+	color: #111;
+}
+
+.list-categ{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.list-categ .categ{
+	width: auto;
+	height: 4.5em;
+	padding: .5em .6em;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid white;
+}
+
+.list-categ .categ .edit a {
+    display: inline-block;
+    padding: 0.8em 1.8em;
+    border: .5px solid ;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none; 
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.list-categ .categ .edit a:hover {
+    background: var(--white);
+    color: #111;
+}
+
+//LIXEIRA
+.categ .delete a{
+	height: 100%;
+	width: 3em;
+	border-radius: 2px;
+	border: 1px solid var(--white);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.categ .delete a:hover{
+	border-color: var(--gray);
+}
+
+.fa-trash:before {
+    content: "\f1f8";
+    font-size: 1.5em;
+    color: var(--white);
+}
+
+@media only screen and (max-width: 1300px){
+	main{
+		flex-direction: column;
+		width: 60%;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.list-categ{
+		width: 550px;
+	}
+
+	.categ{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 1000px){
+	main{
+		flex-direction: column;
+		width: 90%;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.list-categ{
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.categ{
+		width: 100%;
+		justify-content: space-between;
+	}
+}
