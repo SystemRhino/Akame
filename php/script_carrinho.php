@@ -3,9 +3,10 @@
         session_start();
         if (!isset($_SESSION['id'])){
             $id_prod = $_GET['id'];
-            header('location:../login.php?link=carrinho&id='.$id_prod);
+            header('location: ../login.php?link=carrinho&id='.$id_prod);
         }else{
             include('conecta.php');
+            
             //vars
             $id_user = $_SESSION['id'];
             $quant = $_GET['quant'];
@@ -36,7 +37,7 @@
                 $stmt = $conn->prepare($sql);
                 $stmt->execute(array(':id_user' => $id_user, ':id_produto' => $id_produto, ':quantidade' => $quant));
             }
-            //echo "<script>history.go(-1);</script>";
+            echo "<script>history.go(-1);</script>";
         }
     } catch (Exception $e) {
         echo "Erro: " . $e->getMessage();

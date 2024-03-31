@@ -4,7 +4,7 @@ if ($_SESSION['nivel'] != 1) {
 	header('location:../catalogo.php');
 }else{
 		$id = $_GET['id'];
-		include('php/conecta.php');
+		include('conecta.php');
 		try {
 		$script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  id = '$id'");
     	$script_produtos->execute();
@@ -21,7 +21,7 @@ if ($_SESSION['nivel'] != 1) {
 		  $delete_carrinho->execute();
 		  
 
-		  header('location:add_produto.php');
+		  header('location: ../gestao_loja.php');
 
 		} catch(PDOException $e) {
 		    echo $e;
