@@ -1,10 +1,10 @@
 <?php
 session_start();
 if ($_SESSION['nivel'] != 1) {
-	header('location:../');
+	header('location:../catalogo.php');
 }else{
 		$id = $_GET['id'];
-		include('./php/conecta.php');
+		include('php/conecta.php');
 		try {
 		$script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  id = '$id'");
     	$script_produtos->execute();
