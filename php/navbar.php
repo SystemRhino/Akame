@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +9,18 @@
     <nav>
         <ul class="nav-list">
             <li><a href="catalogo.php">Início</a></li>
+<?php if(isset($_SESSION['id'])){?>
             <li><a href="carrinho.php">Carrinho</a></li>
-<?php if(isset($_SESSION['id']) and $_SESSION['id'] == 1){?>
-            <li><a href="add_produto.php">Gerenciar Produtos</a></li>
-            <li><a href="add_categoria.php">Gerenciar Categorias</a></li>
-            <li><a href="users.php">Gerenciar Users</a></li>
-<?php }?>
+            <li><a href="logout.php">Sair</a></li>
+<?php if($_SESSION['nivel'] == 1){?>
+            <li><a href="gestao_loja.php">Gestão Produtos</a></li>
+            <li><a href="gestao_categ.php">Gestão Categorias</a></li>
+            <li><a href="users.php">Gestão Users</a></li>
+<?php }
+}else{?>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="cadastro.php">Cadastro</a></li>
+    <?php }?>
         </ul>
         <a class="logo" href="index.php"><img src="img/logo.png " alt="logo"></a>
 <?php if(isset($_SESSION['id'])){?>
@@ -24,8 +31,8 @@
                 </ul>
 <?php }else{ ?>
                <div class="nav-user">
-                    <a class="login" href="login.php">Login</a>
-                    <button class="cadastro"href="cadastro.php">Cadastre-se</button>
+               <li><a href="login.php">Login</a></li>
+               <li><a href="cadastro.php.php">Cadastro</a></li>
                 </div>
 <?php }?>
         <div class="mobile-menu">

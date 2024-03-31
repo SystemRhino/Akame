@@ -22,7 +22,7 @@ require('conecta.php');
 			echo "Nome de usuario atingiu o limite máximo de caracteres (80)";
 		}elseif(strlen($senha) > 20){
 			echo "Senha atingiu o limite máximo de caracteres (20)";
-		}elseif($valid_user_space === false){
+		}elseif($valid_user_space == true){
 			// Consultando E-mail
 		    $script_email = $conn->prepare('SELECT * FROM tb_users WHERE ds_login = :login');
 		    $script_email->bindValue("login", $login);
@@ -34,9 +34,7 @@ require('conecta.php');
 		    $script_user->execute();
 
 			  // Verificando se o email ou user ja esta em uso
-			  if ($script_user->rowCount() > 0) {
-			  	 echo "Usuário já cadastrado!";
-			  }elseif ($script_email->rowCount() > 0){
+			 if ($script_email->rowCount() > 0){
 			  	 echo "E-mail já cadastrado!";
 			  }else{
 				try{
@@ -64,7 +62,7 @@ require('conecta.php');
 				}
 			}
 		}else{
-			echo 'Nome de usário não pode conter espaço!';
+			echo 'Digite um sobrenome!';
 		}
 	}
 ?>
