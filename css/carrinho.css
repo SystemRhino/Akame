@@ -16,180 +16,234 @@
 	font-weight: 300;
 }
 
-html{
+html, body{
 	height: 100%;
 }
 
 body{
-	height: 100%;
 	background-color: var(--black);
 
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 }
 
 .title{
 	font-family: "Metal Mania", system-ui;
 }
 
-@media only screen and (max-width: 600px) {
-    .card {
-        width: 90%;
-    }
+/* CARD */
+main{
+	width: 100%;
+	height: 100%;
 
-    .logo-space {
-        flex-direction: column;
-        gap: 0.5em;
-        align-items: center;
-        text-align: center;
-    }
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
 
-    .logo-space .logo img {
-        width: 80px; /* Reduzindo o tamanho do logo */
-    }
+.card{
+	width: 30%;
+	padding: 1.5em;
+	border: 3px	 solid white;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 3em;
+}
 
-    .logo-space h3 {
-        font-size: 1.5em; /* Reduzindo o tamanho do texto */
-    }
+.card .logo-space{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
 
-    .itens-carrinho {
-        height: auto;
-    }
+.logo-space .logo img{
+	width: 100px;
+	display: block;
+}
 
-    .itens-carrinho .item {
-        flex-direction: column; /* Ajustando para exibir os itens verticalmente */
-        border-left: none; /* Removendo a borda lateral */
-    }
+.logo-space h3{
+	font-size: 2em;	
+	color: white;
+}
 
-    .item .image-item img {
-        width: 100%; /* Ajustando o tamanho da imagem para preencher a largura */
-        height: auto; /* Permitindo que a altura seja ajustada automaticamente */
-        margin-bottom: 0.5em; /* Adicionando um espaçamento inferior */
-    }
+/* LISTA CARRINHO */
+.card .itens-carrinho{
+	width: 100%; 
+	padding: 1em 0;
+	height: 13em;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
 
-    .item .info-item {
-        width: 100%;
-    }
+    scrollbar-width: thin;
+}
 
-    .info-item .action-product {
-        flex-direction: column; /* Ajustando a disposição dos elementos de ação */
-        align-items: center;
-    }
+/* SCROLL CARRINHO */
 
-    .info-carrinho {
-        flex-direction: column; /* Ajustando a disposição dos elementos de informações do carrinho */
-        align-items: center;
-        padding-top: 0.5em; /* Reduzindo o espaçamento superior */
-    }
+.itens-carrinho::-webkit-scrollbar {
+  width: 12px;
+}
 
-    .info-carrinho button {
-        padding: 0.5em 1em; /* Reduzindo o tamanho do botão */
-        font-size: 14px; /* Reduzindo o tamanho da fonte */
-    }
+.itens-carrinho::-webkit-scrollbar-track {
+  background: var(--gray);
+}
+
+.itens-carrinho::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+  border-radius: 20px;
+  border: 3px solid var(--gray);
+}
+
+/* ITEM */
+.itens-carrinho .item{
+    border-left: 0.5px solid #fff;
+	width: auto;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
 }
 
 
-@media only screen and (min-width: 601px) {
-	/* CARD */
+.item .image-item{
+	color: white;
+	width: 6em;
+}
 
-	.card{
-		width: 30em;
-		padding: 1.5em;
-		border: 3px	 solid white;
-		border-radius: 4px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		row-gap: 3em;
-	}
+.item .image-item img{
+	filter: drop-shadow(0 0 4px white);
+	display: block;
+	height: 6em;
+}
 
-	.card .logo-space{
-		width: 100%;
+.item .info-item {
+	height: 6em;
+	width: 80%;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: var(--white);
+}
+
+.item .info-item > *{
+	display: flex;
+	justify-content: space-between;
+}
+
+.item .info-item .action-product .quant-space{
+	display: flex;
+	height: 1.5em;
+}
+
+.item .info-item .action-product .quant-space input,
+.item .info-item .action-product .quant-space button{
+	width: 2em;
+	text-align: center;
+}
+/* REMOVER SETAS DO INPUT NUMBER #QUANT*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.card .info-carrinho{
+	color: white;
+	width: 100%;
+	padding-top: 1em;
+	border-top: .5px solid white;
 
 
+	display: flex;
+	justify-content: space-between;
+	align-itens: flex-end;
+}
+
+.card .info-carrinho button{
+	padding: 0.8em 1.8em;
+    border: 2px solid ;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor:pointer;
+}
+   
+.card .info-carrinho button:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* ICON LIXEIRA */
+.fa-trash:before {
+    content: "\f1f8";
+    color: white;
+    font-size: 1em;
+}	
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .logo-space{
+    	width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 1em;
-	}
+		color: #fff;
+    }
 
-	.logo-space .logo img{
-		width: 100px;
-		display: block;
-	}
+    .logo-space .logo img {
+        width: 80px;
+    }
 
-	.logo-space h3{
-		font-size: 2em;	
-		color: white;
-	}
+    .logo-space h3 {
+        font-size: 1.5em;
+    }
 
-	/* LISTA CARRINHO */
-	.card .itens-carrinho{
-		width: 100%; 
+    .itens-carrinho {
+        width: 100%; 
 		padding: 1em 0;
-		height: 13em;
-	    overflow-y: auto;
+		height: auto;
 	    display: flex;
 	    flex-direction: column;
 	    gap: .5em;
+    }
 
-	    scrollbar-width: thin;
-	}
-
-	/* SCROLL CARRINHO */
-
-	.itens-carrinho::-webkit-scrollbar {
-	  width: 12px;
-	}
-
-	.itens-carrinho::-webkit-scrollbar-track {
-	  background: var(--gray);
-	}
-
-	.itens-carrinho::-webkit-scrollbar-thumb {
-	  background-color: var(--black);
-	  border-radius: 20px;
-	  border: 3px solid var(--gray);
-	}
-
-	/* ITEM */
-	.itens-carrinho .item{
-	    border-left: 0.5px solid #fff;
+    .itens-carrinho .item {
+    	border-left: 0.5px solid #fff;
 		width: auto;
 		height: auto;
 		display: flex;
 		justify-content: space-between;
-	}
+    }
 
+    .item .image-item img {
+        width: 100%; 
+        height: auto; 
+        margin-bottom: 0.5em;
+    }
 
-	.item .image-item{
-		color: white;
-		width: 6em;
-	}
+    .item .info-item {
+        width: 100%;
+        height: 100%;
+    }
 
-	.item .image-item img{
-		filter: drop-shadow(0 0 4px white);
-		display: block;
-		height: 6em;
-	}
-
-	.item .info-item {
-		height: 6em;
-		width: 80%;
-		padding: 1em;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		color: var(--white);
-	}
-
-	.item .info-item > *{
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.item .info-item .action-product .quant-space{
+    .item .info-item .action-product .quant-space{
 		display: flex;
 		height: 1.5em;
 	}
@@ -206,42 +260,10 @@ body{
 	  margin: 0;
 	}
 
-	.card .info-carrinho{
-		color: white;
-		width: 100%;
-		padding-top: 1em;
-		border-top: .5px solid white;
-
-
-		display: flex;
-		justify-content: space-between;
-		align-itens: flex-end;
-	}
-
-	.card .info-carrinho button{
-		padding: 0.8em 1.8em;
-	    border: 2px solid ;
-	    overflow: hidden;
-	    background-color: transparent;
-	    text-align: center;
-	    text-transform: uppercase;
-	    font-size: 16px;
-	    transition: .3s;
-	    z-index: 1;
-	    font-family: inherit;
-	    color: var(--white);
-	    cursor:pointer;
-	}
-	   
-	.card .info-carrinho button:hover {
-	    background: var(--white);
-	    color: var(--black);
-	}
-
-	/* ICON LIXEIRA */
-	.fa-trash:before {
-	    content: "\f1f8";
-	    color: white;
-	    font-size: 1em;
-	}
+    .info-carrinho button {
+    	width: 10em;
+    	height: 4.5em;
+        font-size: 10px; 
+        padding: 0;
+    }
 }
