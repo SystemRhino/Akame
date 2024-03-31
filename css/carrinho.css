@@ -146,6 +146,13 @@ main{
 	width: 2em;
 	text-align: center;
 }
+#back{
+	color: white;
+	cursor:pointer;
+}
+#back:hover{
+		opacity: 0.6;
+}
 /* REMOVER SETAS DO INPUT NUMBER #QUANT*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

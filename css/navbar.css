@@ -15,7 +15,8 @@
 }
 
 .logo img{
-    width: 150px;
+    width: 100px;
+    display: flex;
 }
 
 nav {
