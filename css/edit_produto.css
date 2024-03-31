@@ -1,0 +1,152 @@
+:root {
+    --black: #090909;
+    --white: #ffffff;
+    --gray: #606060;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins',sans-serif;
+}
+
+html, body{
+	height: 100%;
+}
+
+body{
+	margin-top: 4em;
+	background-color: var(--black);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3em;
+}
+
+main{
+	display: flex;
+	gap: 2em;
+	width: auto;
+}
+
+.form{
+	width: 550px;
+	height: auto;
+	border: 3px solid var(--white);
+	border-style:solid;
+	border-radius: 5px;
+}
+
+.form .title{
+	height: 90px;
+	border-bottom-style:solid;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 30px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form .images{
+	width: 100%;
+	height: 10em;
+	margin-bottom: 1em;
+	color: var(--white);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.form .images img{
+	display: block;
+	height: 8em;
+	filter: drop-shadow(1px 1px var(--white));
+}
+
+.form form{
+	width: 100%;
+	padding: 30px 25px 25px 25px;
+}
+
+.form form .row{
+	height: 45px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.form form .row input{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	padding-left:1rem;
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+	font-size: 16px;
+	transition: all 0.3s ease;
+}
+
+form .row input::placeholder{
+	color: #999;
+}
+
+form .row input[type="file"]{
+	color: var(--white);
+	font-size: 13px;
+	height: 2em;
+}
+
+.form form .row i{
+	position: absolute;
+	width: 47px;
+	height: 100%;
+	color: #fff;
+	font-size: 18px;
+	background: #16a085;
+	border: 1px solid #16a085;
+	border-radius: 5px 0 0 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button.btn-join{
+	padding: 0.8em 1.8em;
+    border: 2px solid ;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    text-deconration: none;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor:pointer;
+}
+   
+button.btn-join:hover {
+	background: var(--white);
+	color: #111;
+}
+
+@media only screen and (max-width: 800px){
+	body{
+		align-items: center;
+		justify-content: center;
+	}
+
+	main{
+		width: 90%;
+	}
+
+	.form, form{
+		width: 100%;
+	}
+}
