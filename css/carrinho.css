@@ -26,6 +26,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .title{
@@ -75,8 +76,7 @@ main{
 .card .itens-carrinho{
 	width: 100%; 
 	padding: 1em 0;
-	height: 13em;
-    overflow-y: auto;
+	height: auto;
     display: flex;
     flex-direction: column;
     gap: .5em;
@@ -116,8 +116,8 @@ main{
 }
 
 .item .image-item img{
-	filter: drop-shadow(0 0 4px white);
 	display: block;
+	filter: drop-shadow(0px 0px 1px white);
 	height: 6em;
 }
 
@@ -192,10 +192,12 @@ input::-webkit-inner-spin-button {
     font-size: 1em;
 }	
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 630px) {
     .card {
         width: 90%;
         height: auto;
+        gap: 1em;
+        justify-content: space-between;
     }
 
     .logo-space{
