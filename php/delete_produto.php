@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['nivel'] != 1) {
-	header('location:../');
+	header('location: catalogo.php');
 }else{
 		$id = $_GET['id'];
 		include('conecta.php');
@@ -9,7 +9,7 @@ if ($_SESSION['nivel'] != 1) {
 		  $delete_produto = $conn->prepare("DELETE FROM tb_products WHERE (`id` = '$id')");
 		  $delete_produto->execute();
 
-		  header('location:../add_produto.php');
+		  header('location:../gestao_loja.php');
 
 		} catch(PDOException $e) {
 		    echo $e;
