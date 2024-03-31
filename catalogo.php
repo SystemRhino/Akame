@@ -120,7 +120,7 @@
                         foreach ($produtos as $produto) {?>
                             <div class="product">
                                 <div class="product-image">
-                                    <img src="img/<?php echo $produto['img_1'];?>" onmouseover="changeImage(this, '<?php echo 'img/'.$produto['img_2'];?>')" onmouseout="changeImage(this, '<?php echo 'img/'.$produto['img_1'];?>')" onclick="window.location.href='produto.php?id=<?php echo $produto['img_1'];?>'">
+                                    <img src="img/<?php echo $produto['img_1'];?>" onmouseover="changeImage(this, '<?php echo 'img/'.$produto['img_2'];?>')" onmouseout="changeImage(this, '<?php echo 'img/'.$produto['img_1'];?>')" onclick="window.location.href='produto.php?id=<?php echo $produto['nm_produto'];?>'">
                                 </div>
                                 <div class="product-content">
                                     <h3>R$ <?php echo $produto['vl_produto'];?></h3>
