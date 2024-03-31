@@ -173,7 +173,7 @@ a.btn-join:hover {
     color: #111;
 }
 
-//LIXEIRA
+/* LIXEIRA ICON */
 .product .product-action a{
 	height: 100%;
 	width: 3em;
@@ -193,4 +193,53 @@ a.btn-join:hover {
     content: "\f1f8";
     font-size: 1.5em;
     color: var(--white);
+}
+
+@media only screen and (max-width: 1000px){
+	main{
+		flex-direction: column;
+		width: 80%;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.list-product{
+		width: 550px;
+	}
+
+	.form{
+		width: 100%;
+		height: auto;
+	}
+
+	.form form{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: auto;
+		font-size: 4em;
+	}
+
+	.product{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	main{
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.list-product{
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.product{
+		width: 100%;
+		justify-content: space-between;
+	}
 }
