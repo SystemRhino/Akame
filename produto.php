@@ -4,8 +4,8 @@ session_start();
       header('location: catalogo.php');
     }else{
       include('php/conecta.php');
-      $caminho_img = $_GET['id'];
-      $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  img_1 = '$caminho_img'");
+      $nm_produto = $_GET['id'];
+      $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  nm_produto = '$nm_produto'");
       $script_produtos->execute(); 
     if($script_produtos->rowCount() == 0){
       header("Location: catalogo.php");
@@ -45,10 +45,11 @@ session_start();
                     <h2>sobre o item:</h2>
                     <p><?php echo $produto['ds_produto'];?></p>           
                 </div>
+                
                 <div class="purchase-info">
                     <input type="number" min="1" value="1" id="quant">
                     <button id="cart" type="button" class="btn" onclick="addCarrinho();">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                    <button onclick="window.location.href='carrinho.php?id=<?php echo $nm_produto;?>'" type = "button" class="btn">Comprar</button>
+                    <button onclick="window.location.href='carrinho.php?id=<?php echo $produto['id'];?>'" type = "button" class="btn">Comprar</button>
                 </div>
             </div>
         </div>
