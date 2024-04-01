@@ -9,6 +9,12 @@ if($_POST['nome'] == "" or $_POST['telefone'] == "" or $_POST['telefone'] == "" 
     date_default_timezone_set('America/Sao_Paulo');
     $date = date('Y-m-d H:i');
 
+    if($_POST['formPag'] == "pix"){
+        $formPag = 'Pix';
+    }else{
+        $formPag = 'Cartão de Crédito/Débito';
+    }
+
     // Consultando carrinho
     $id = $_SESSION['id'];
     $script_carrinho = $conn->prepare("SELECT * FROM tb_carrinho WHERE id_user = '$id'");
@@ -26,23 +32,27 @@ if($_POST['nome'] == "" or $_POST['telefone'] == "" or $_POST['telefone'] == "" 
 
         $text_produtos = $text_produtos.$produto['nm_produto']." - R$".$produto['vl_produto']."%0A";
     }
-
+    $soma += 30;
+    $npedido = str_replace('-', '', $date);
+    $npedido = str_replace(':', '', $npedido);
+    $npedido = str_replace(' ', '', $npedido);
+    
     $text_link = "
     Confira o pedido:
-    Pedido N xxx - Akame
+    Pedido N ".$npedido." - Akame
     ---------------------------------------
     ".$text_produtos."
-    Frete: A Combinar - R$0,00 até 10 dia(s) úteis
+    Frete: R$30,00 até 10 dia(s) úteis
     Total: R$ ".$soma." 
     --------------------------------------- 
 
     Informações do cliente
     Nome: ".$_POST['nome']."
     Contato: ".$_POST['telefone']." 
-    Pagamento: PIX
+    Pagamento: ".$formPag."
 
     Endereço de entrega:
-    ".$_POST['telefone'].", ".$_POST['numero']."
+    ".$_POST['rua'].", ".$_POST['numero']."
     ".$_POST['bairro']."
     ".$_POST['cidade']." /".$_POST['estado']."
     ".$_POST['estado']."
