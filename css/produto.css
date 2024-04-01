@@ -93,7 +93,22 @@ main .card{
     padding: 0.3rem;
     opacity: 0.8;
 }
-
+.size{
+    padding: 5px;
+    border: 2px solid ;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white);
+    cursor:pointer;
+    flex: 1 0 60px;
+}
 .purchase-info{
     margin: 1.5rem 0;
 }
@@ -139,7 +154,7 @@ main .card{
 .purchase-info .btn:last-of-type{
     padding: 0.8em 1.8em;
     border: 2px solid ;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     background-color: transparent;
     text-align: center;
