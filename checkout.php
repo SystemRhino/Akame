@@ -35,8 +35,6 @@ if (!isset($_SESSION['id'])){
     </aside>
 
     <main>
-		<!-- Tag "span" usada para retorno do ajax -->
-	<span></span>
 
   <?php
 // Verificação se tem produtos
@@ -72,15 +70,12 @@ if ($script_carrinho->rowCount()>0){
    
 
 <div class="containerF">
-<span></span>
+
       <div class="wrapperF">
         <div class="title"> <h2>Total: R$<?php echo $soma;?></h2></div>
         <form id="form_check" class="formF">
 
-        <div class="row">
-        <button class="btn-join">Finalizar</button>
-          </div>
-
+        <span></span>
           <div class="row">
           <input name="nome" type="text" placeholder="Nome do destinatário">
           </div>
@@ -113,6 +108,14 @@ if ($script_carrinho->rowCount()>0){
 
           <div class="row">
           <input name="cep" type="number" placeholder="CEP">
+          </div>
+
+          <div class="row">
+          <select name="formPag">
+            <option value="pix">Pix</option>
+            <option value="card">Cartão de Crédito/Débito</option>
+          </select>
+
           </div>
 
           <div class="row button">

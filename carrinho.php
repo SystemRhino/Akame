@@ -70,7 +70,7 @@ if (!isset($_SESSION['id'])){
         </div>
         <div class="info-carrinho">
             <h2 class="total title"></h2>
-            <button class="final-button">Finalizar compra</button>
+            <button class="final-button" onclick="window.location.href='checkout.php'">Finalizar compra</button>
         </div>
     </div>
 
