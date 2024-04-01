@@ -24,9 +24,11 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_carrinho` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `id_user` INT(11) NULL DEFAULT NULL,
   `id_produto` INT(11) NULL DEFAULT NULL,
-   `nr_quant` INT(11) NULL DEFAULT NULL,
+  `nr_quant` INT(11) NULL DEFAULT NULL,
+  `tamanho` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 79
 DEFAULT CHARACTER SET = utf32;
 
 
@@ -38,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_categoria` (
   `nm_categoria` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf32;
 
 
@@ -56,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_products` (
   `nr_estoque` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 16
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -73,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `bd_akame`.`tb_users` (
   `nivel` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf32;
 
 
@@ -84,4 +86,5 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 -- INSERT INTO `bd_akame`.`tb_users`
 -- -----------------------------------------------------
-INSERT INTO `bd_akame`.`tb_users` (`id`, `nm_user`, `ds_login`, `ds_senha`, `nivel`) VALUES ('1', 'bot', 'bot', 'bot', '1');
+INSERT INTO `bd_akame`.`tb_users` (`nm_user`, `ds_login`, `ds_senha`, `nivel`) VALUES ('Icaro', 'akame@gmail.com', 'akame2024', '1');
+
