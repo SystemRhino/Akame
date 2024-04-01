@@ -7,10 +7,12 @@ session_start();
       $nm_produto = $_GET['id'];
       $script_produtos = $conn->prepare("SELECT * FROM tb_products WHERE  nm_produto = '$nm_produto'");
       $script_produtos->execute(); 
+      $produto = $script_produtos->fetch(PDO::FETCH_ASSOC);
+      $id_produto = $produto['id'];
+      $_SESSION['id_produto'] = $id_produto;
     if($script_produtos->rowCount() == 0){
       header("Location: catalogo.php");
     }else{
-      $produto = $script_produtos->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,18 +47,69 @@ session_start();
                     <h2>sobre o item:</h2>
                     <p><?php echo $produto['ds_produto'];?></p>           
                 </div>
-                
+                    <button class="size" onClick="selectTamanho(this.value);" value="P">P</button>
+                    <button class="size" onClick="selectTamanho(this.value);" value="M">M</button>
+                    <button class="size" onClick="selectTamanho(this.value);" value="G">G</button>
+                    <button class="size" onClick="selectTamanho(this.value);" value="GG">GG</button>
+<script>
+  function selectTamanho(tamanho) {
+    document.getElementById('tamanho').value = tamanho;
+}
+</script>
+                    <input style="visibility: hidden;" type="text" value="P" id="tamanho">
                 <div class="purchase-info">
-                    <input type="number" min="1" value="1" id="quant">
-                    <button id="cart" type="button" class="btn" onclick="addCarrinho();">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                    <button onclick="window.location.href='carrinho.php?id=<?php echo $produto['id'];?>'" type = "button" class="btn">Comprar</button>
+                    <input type="number" min="1" value="1" id="quant"><br>
+                    <button id="cart" type="button" class="btn" id="cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                    <button type = "button" class="btn" id="comprar">Comprar</button>
+                    <br><span style="color:white;"></span>
                 </div>
             </div>
         </div>
     </main>
     <?php include('php/footer.php');?>
 
-    <script>
+	<!-- JS -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#comprar").click(function(){
+  			$.ajax({
+  				url: "php/script_carrinho.php",
+  				type: "GET",
+  				data: "id="+<?php echo $produto['id']?>+"&quant="+$("#quant").val()+"&size="+$("#tamanho").val(),
+  				dataType: "html"
+  			}).done(function(resposta) {
+	    $("span").html(resposta);
+
+		}).fail(function(jqXHR, textStatus ) {
+	    console.log("Request failed: " + textStatus);
+
+		}).always(function() {
+	    console.log("completou");
+		});
+  	});
+});
+
+$(document).ready(function(){
+			$("#cart").click(function(){
+  			$.ajax({
+  				url: "php/script_carrinho.php",
+  				type: "GET",
+  				data: "id="+<?php echo $produto['id']?>+"&quant="+$("#quant").val()+"&size="+$("#tamanho").val(),
+  				dataType: "html"
+  			}).done(function(resposta) {
+          $("span").html("Adicionado ao carrinho!");
+		}).fail(function(jqXHR, textStatus ) {
+	    console.log("Request failed: " + textStatus);
+
+		}).always(function() {
+	    console.log("completou");
+		});
+  	});
+});
+	</script>
+
+<!--    <script>
       function addCarrinho() {
         // Obtém o valor do input
         var quantidade = document.getElementById('quant').value;
@@ -64,7 +117,7 @@ session_start();
         // Obtém o ID do produto da URL atual
         var url = window.location.href;
         var parametros = new URLSearchParams(window.location.search);
-        var idProduto = parametros.get('id');
+        var idProduto = <?php echo $$id_produto;?>
 
         // Monta a URL com os parâmetros adicionados
         var novaURL = 'php/script_carrinho.php?id=' + idProduto + '&quant=' + quantidade;
@@ -72,7 +125,7 @@ session_start();
         // Redireciona para a nova URL
         window.location.href = novaURL;
       }
-    </script>
+    </script>-->
   </body>
 </html>
 <?php } } ?>

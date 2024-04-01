@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])){
-    header('location: catalogo.php');
+    header('location:login.php');
 }else{
     include('php/conecta.php');
     $id = $_SESSION['id'];
@@ -46,7 +46,7 @@ if (!isset($_SESSION['id'])){
                     </div>
                     <div class="info-item">
                         <div class="base-product">
-                            <h3 style="color: white;"><?php echo $produto['nm_produto'];?></h3>
+                            <h3 style="color: white;"><?php echo $produto['nm_produto'].' - '.$item['tamanho'];?></h3>
                             <h3 class="preco"style="color: #007F00;">R$ <?php echo $produto['vl_produto'];?></h3>
                         </div>
                         <div class="action-product">
@@ -83,9 +83,8 @@ if (!isset($_SESSION['id'])){
 
     $('.decrementButton').click(function() {
         var id_produto = $(this).data('id-produto');
-        if(id_produto = 1){
-    
-        }else{
+        var quant = $('#quant').val();
+        if(quant > 1){
             updateNumber('decrement', id_produto, $(this));
         }
     });

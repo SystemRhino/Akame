@@ -3,7 +3,7 @@ session_start();
 // Verificação da sessão
 if (isset($_SESSION['id']) and $_SESSION['nivel'] == 1) {
   	header('location: gestao_loja.php');
-  } else if (isset($_POST['id']) and $_SESSION['nivel'] != 1){
+  } else if (isset($_SESSION['id']) and $_SESSION['nivel'] != 1){
     header('location: catalogo.php');
   }
 ?>
