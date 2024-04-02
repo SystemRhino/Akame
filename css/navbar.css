@@ -6,6 +6,8 @@
 
 *{
     margin:0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -21,14 +23,17 @@
 
 nav {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    height: auto;
     background-color:var(--black);
-    height: 15vh;
+    
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
     color:var(--white);
     letter-spacing: 3px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav a{
@@ -42,6 +47,10 @@ nav a:hover{
 .nav-list {
     list-style: none;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+    padding: 1em 0;
 }
 
 .nav-list li a{
@@ -50,38 +59,35 @@ nav a:hover{
 
 }
 
-.nav-user{
-    width: 20em;
-    padding-right: 3em;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2em;
-}
-
-.nav-user .login{
+.login{
     text-decoration: none;
     cursor: pointer;
 }
 
-.nav-user button{
-    width: 10em;
-    height: 2.5em;
-
+.button {
+    display: inline-block;
+    width: 7em;
+    height: 2em;
     border-radius: 6px;
-    background-color: var(--gray);
+    background-color: var(--white);
     
     color: var(--black);
     font-size: 1em;
     font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
     letter-spacing: 3px;
+    text-decoration: none;
+    line-height: 2.5em; 
+    text-align: center; 
+}
+
+.nav-user .button:hover {
+    opacity: 0.8;
 }
 
 .mobile-menu {
     display: none;
     cursor: pointer;
- z-index:10;
+    z-index:10;
 }
 
 .mobile-menu div {
@@ -94,21 +100,27 @@ nav a:hover{
 }
 
 @media (max-width: 999px) {
-    body {
+    body, html {
         overflow-x: hidden;
+        width: 100%;
     }
 
-    .nav-list, .nav-user {
+    nav{
+        flex-direction: row;
+        justify-content: space-between; 
+    }
+
+    .nav-list {
         z-index:1;
         position: absolute;
         top: 8vh;
         right: 0;
-        width: 50vw;
-        height: 92vh;
+        width: 75vw;
+        height: 80vh;
         background: var(--black);
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        gap: 1em;
         transform: translateX(100%);
         transition: transform 0.3s ease-in;
     }
@@ -122,14 +134,17 @@ nav a:hover{
     .mobile-menu {
         display: block;
     }
-}
-.phpcssnav{
-    display:block;
+
+    .phpcssnav{
+        display:block;
+    }
+
+    .nav-list.active {
+        transform: translateX(0);
 }
 
-.nav-list.active {
-    transform: translateX(0);
 }
+
 
 @keyframes navLinkFade {
     from {
