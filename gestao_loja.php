@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="product-action">
                                 	<a class="btn-join" href="edit_produto.php?id=<?php echo $produto['img_1'];?>">Editar</a>
-                                    <a href="php/delete_produto.php?id=<?php echo $produto['id'];?>"><i class="fas fa-trash"></i></a>
+                                    <a href="delete_produto.php?id=<?php echo $produto['id'];?>"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
                     <?php
